@@ -73,7 +73,7 @@
 --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
 /* Code / mono — system monospace */
---font-mono: "Fira Code", 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+--font-mono: 'Fira Code', 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
 ```
 
 > If importing web fonts, prefer: Playfair Display or Cormorant Garamond for display; Inter for body; Fira Code for code snippets.
