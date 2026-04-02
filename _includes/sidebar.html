@@ -1,0 +1,24 @@
+<aside class="sidebar" id="sidebar" aria-label="Site navigation">
+
+  <div class="sidebar-header">
+    <a href="{{ "/" | relative_url }}" class="brand-mark" aria-label="{{ site.title }} home">TK</a>
+    <div class="sidebar-identity">
+      <span class="sidebar-name">{{ site.title }}</span>
+      <span class="sidebar-tagline">{{ site.tagline }}</span>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav" aria-label="Primary">
+    <a href="{{ "/" | relative_url }}"          class="nav-link{% if page.url == "/" %} active{% endif %}">Profile</a>
+    <a href="{{ "/blog/" | relative_url }}"      class="nav-link{% if page.url contains "/blog" %} active{% endif %}">Blog</a>
+    <a href="{{ "/portfolio/" | relative_url }}" class="nav-link{% if page.url contains "/portfolio" %} active{% endif %}">Portfolio</a>
+    <a href="{{ "/contact/" | relative_url }}"   class="nav-link{% if page.url contains "/contact" %} active{% endif %}">Contact</a>
+  </nav>
+
+  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar" title="Collapse sidebar">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+  </button>
+
+</aside>

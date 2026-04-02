@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bundle install:*)",
+      "Bash(bundle exec:*)",
+      "Bash(bundle update:*)",
+      "Bash(wc -c \"D:/Tom/Work/tomkuhn/_posts/\"*.md)"
+    ]
+  }
+}

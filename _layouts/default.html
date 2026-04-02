@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% include head.html %}
+</head>
+<body>
+
+  <!-- Mobile overlay -->
+  <div class="sidebar-overlay" id="sidebar-overlay" aria-hidden="true"></div>
+
+  {% include sidebar.html %}
+
+  <div class="main-wrap">
+
+    <!-- Mobile header -->
+    <header class="mobile-header" aria-label="Mobile navigation">
+      <button class="hamburger" id="hamburger" aria-label="Open navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="{{ "/" | relative_url }}" class="brand-mark brand-mark--sm" aria-label="{{ site.title }} home">TK</a>
+    </header>
+
+    <!-- Scroll progress -->
+    <div class="progress-track" id="progress-track" aria-hidden="true">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <main class="content" id="main-content">
+      {{ content }}
+    </main>
+
+  </div>
+
+  <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+</body>
+</html>

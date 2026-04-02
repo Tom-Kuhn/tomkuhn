@@ -1,0 +1,37 @@
+---
+layout: default
+title: Blog
+permalink: /blog/
+---
+
+<div class="blog-page">
+
+  <h1 class="page-title">Blog</h1>
+  <p class="page-subtitle">Thoughts on engineering, architecture, and building teams.</p>
+
+  {% if site.posts.size > 0 %}
+    <div class="post-list">
+      {% for post in site.posts %}
+        <article class="post-card">
+          <p class="post-card-meta">{{ post.date | date: "%B %-d, %Y" }}</p>
+          <h2 class="post-card-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          {% if post.excerpt %}
+            <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+          {% endif %}
+          <a href="{{ post.url | relative_url }}" class="post-card-link">
+            Read more
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </article>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty-state">Posts coming soon.</p>
+  {% endif %}
+
+</div>

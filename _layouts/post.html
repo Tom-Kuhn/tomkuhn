@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<article class="post-page">
+
+  <header class="post-header">
+    <p class="post-header-meta">{{ page.date | date: "%B %-d, %Y" }}</p>
+    <h1 class="post-header-title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+      <p class="post-header-subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  <footer class="post-footer">
+    <a href="{{ "/blog/" | relative_url }}" class="post-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="19" y1="12" x2="5" y2="12"/>
+        <polyline points="12 19 5 12 12 5"/>
+      </svg>
+      Back to blog
+    </a>
+  </footer>
+
+</article>
