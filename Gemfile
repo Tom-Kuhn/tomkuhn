@@ -12,9 +12,18 @@ gem "bigdecimal"
 gem "base64"
 gem "logger"
 gem "ostruct"
+gem "benchmark"
+gem "faraday-retry"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
+  gem "jekyll-seo-tag"
+  gem "jekyll-assets"
+  gem "jekyll-redirect-from"
+  gem "jekyll-tagging"
+  gem "jekyll-archives"
+  gem "jekyll-mentions"
+  gem "jekyll-gist"
 end
 
 platforms :windows, :jruby do

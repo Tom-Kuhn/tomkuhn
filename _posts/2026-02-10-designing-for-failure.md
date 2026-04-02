@@ -2,6 +2,7 @@
 layout: post
 title: "Designing for failure"
 date: 2026-02-10
+tags: [architecture, resilience, distributed-systems]
 ---
 
 Most engineers design for the happy path. You build the thing, you make it work, you ship it. Failure is an afterthought — something you handle after production has already told you about it.

@@ -4,7 +4,9 @@
       "Bash(bundle install:*)",
       "Bash(bundle exec:*)",
       "Bash(bundle update:*)",
-      "Bash(wc -c \"D:/Tom/Work/tomkuhn/_posts/\"*.md)"
+      "Bash(wc -c \"D:/Tom/Work/tomkuhn/_posts/\"*.md)",
+      "Bash(gem search:*)",
+      "Bash(head -5 /d/Tom/Work/tomkuhn/_posts/*.md)"
     ]
   }
 }
