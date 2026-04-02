@@ -3,6 +3,7 @@ layout: post
 title: "On leverage"
 date: 2026-03-20
 tags: [staff-engineer, leadership, career]
+description: "The distinguishing factor of a staff engineer isn't technical depth — it's leverage. What it actually means to multiply your impact, and what you have to give up to do it."
 ---
 
 The thing that distinguishes a staff engineer from a senior engineer isn't technical depth. Both can have plenty of that. The distinguishing factor is leverage — the ability to multiply impact beyond what you can produce yourself.

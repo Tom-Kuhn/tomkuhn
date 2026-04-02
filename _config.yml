@@ -5,10 +5,24 @@ description: >-
   Staff Engineer and architect with a passion for building scalable, resilient systems
   and growing high-performing engineering teams.
 baseurl: ""
-url: ""
+url: "https://tomkuhn.co.uk"
 github_username: tomkuhn
 linkedin_username: tomkuhn
 formspree_id: YOUR_FORMSPREE_ID
+
+author:
+  name: Tom Kuhn
+  email: tom@tomkuhn.co.uk
+
+twitter:
+  username: tomkuhn
+  card: summary
+
+social:
+  name: Tom Kuhn
+  links:
+    - https://github.com/tomkuhn
+    - https://www.linkedin.com/in/tomkuhn
 
 plugins:
   - jekyll-feed

@@ -3,6 +3,7 @@ layout: post
 title: "Why I still write code"
 date: 2026-03-01
 tags: [staff-engineer, engineering, craft]
+description: "As a staff engineer it's easy to drift away from the code. Here's why I've made a deliberate choice to stay close — and why signal quality matters more than credibility."
 ---
 
 There's a version of the staff engineer career path where you drift away from the code. You spend your days in design reviews, strategy documents, cross-team alignment meetings. You become a coordinator, a translator, an influencer. The keyboard gathers dust.

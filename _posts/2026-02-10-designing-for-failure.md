@@ -3,6 +3,7 @@ layout: post
 title: "Designing for failure"
 date: 2026-02-10
 tags: [architecture, resilience, distributed-systems]
+description: "Most engineers design for the happy path. Here's why treating failure as a first-class design concern — not an afterthought — produces more resilient distributed systems."
 ---
 
 Most engineers design for the happy path. You build the thing, you make it work, you ship it. Failure is an afterthought — something you handle after production has already told you about it.
