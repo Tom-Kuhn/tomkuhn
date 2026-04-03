@@ -24,11 +24,11 @@
         <a href="{{ "/" | relative_url }}"          class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
           <span uk-icon="icon: user; ratio: 0.85" class="shrink-0"></span>Profile
         </a>
-        <a href="{{ "/blog/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/blog" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-          <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0"></span>Blog
+        <a href="{{ "/writing/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/writing" or page.layout == "post" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+          <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0"></span>Writing
         </a>
-        <a href="{{ "/portfolio/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/portfolio" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-          <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0"></span>Portfolio
+        <a href="{{ "/work/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/work" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+          <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0"></span>Work
         </a>
         <a href="{{ "/contact/" | relative_url }}"   class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
           <span uk-icon="icon: mail; ratio: 0.85" class="shrink-0"></span>Contact
@@ -73,6 +73,23 @@
     <main class="flex-1 px-6 md:px-8 max-w-[900px] w-full" id="main-content">
       {{ content }}
     </main>
+
+    <footer class="mt-auto px-6 md:px-8 py-8 border-t border-mist" role="contentinfo">
+      <div class="max-w-[900px] w-full flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
+        <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer navigation">
+          <a href="{{ "/" | relative_url }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors">Profile</a>
+          <a href="{{ "/writing/" | relative_url }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors">Writing</a>
+          <a href="{{ "/work/" | relative_url }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors">Work</a>
+          <a href="{{ "/contact/" | relative_url }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors">Contact</a>
+        </nav>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="mailto:{{ site.email }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors">{{ site.email }}</a>
+          <a href="https://github.com/{{ site.github_username }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <a href="{{ "/sitemap.xml" | relative_url }}" class="sr-only">Sitemap</a>
+    </footer>
 
   </div>
 

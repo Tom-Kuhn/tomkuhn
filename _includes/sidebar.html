@@ -10,13 +10,13 @@
     <span uk-icon="icon: user; ratio: 0.85" class="shrink-0"></span>
     <span class="nav-label">Profile</span>
   </a>
-  <a href="{{ "/blog/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/blog" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+  <a href="{{ "/writing/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/writing" or page.layout == "post" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
     <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0"></span>
-    <span class="nav-label">Blog</span>
+    <span class="nav-label">Writing</span>
   </a>
-  <a href="{{ "/portfolio/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/portfolio" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+  <a href="{{ "/work/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/work" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
     <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0"></span>
-    <span class="nav-label">Portfolio</span>
+    <span class="nav-label">Work</span>
   </a>
   <a href="{{ "/contact/" | relative_url }}"   class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
     <span uk-icon="icon: mail; ratio: 0.85" class="shrink-0"></span>
