@@ -17,24 +17,27 @@
         <a href="{{ "/" | relative_url }}" class="flex items-center gap-4 no-underline">
           <span class="w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-sm font-medium shrink-0">TK</span>
           <span class="flex flex-col whitespace-nowrap">
-            <span class="text-white text-sm font-medium">{{ site.title }}</span>
+            <span class="text-white text-base font-medium font-display">{{ site.title }}</span>
             <span class="text-storm text-xs mt-1">{{ site.tagline }}</span>
           </span>
         </a>
         <button class="uk-offcanvas-close !static !text-storm hover:!text-white" type="button" uk-close></button>
       </div>
       <nav class="flex flex-col gap-2" aria-label="Primary">
-        <a href="{{ "/" | relative_url }}"          class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+        <a href="{{ "/" | relative_url }}"          class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
           <span uk-icon="icon: user; ratio: 0.85" class="shrink-0"></span>Profile
         </a>
-        <a href="{{ "/blog/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm no-underline transition-colors duration-150 {% if page.url contains "/blog" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+        <a href="{{ "/blog/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/blog" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
           <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0"></span>Blog
         </a>
-        <a href="{{ "/portfolio/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm no-underline transition-colors duration-150 {% if page.url contains "/portfolio" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+        <a href="{{ "/portfolio/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/portfolio" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
           <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0"></span>Portfolio
         </a>
-        <a href="{{ "/contact/" | relative_url }}"   class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+        <a href="{{ "/contact/" | relative_url }}"   class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
           <span uk-icon="icon: mail; ratio: 0.85" class="shrink-0"></span>Contact
+        </a>
+        <a href="{{ "/search/" | relative_url }}"    class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/search" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+          <span uk-icon="icon: search; ratio: 0.85" class="shrink-0"></span>Search
         </a>
       </nav>
     </div>
@@ -43,23 +46,34 @@
   <div id="main-wrap" class="md:ml-60 min-h-screen flex flex-col transition-all duration-200">
 
     <!-- Mobile header -->
-    <header class="md:hidden flex items-center gap-4 px-8 py-4 bg-obsidian sticky top-0 z-40" aria-label="Mobile navigation">
+    <header class="md:hidden flex items-center gap-4 px-6 py-4 bg-obsidian sticky top-0 z-40" aria-label="Mobile navigation">
       <button
         uk-toggle="target: #mobile-nav"
         type="button"
-        class="flex flex-col gap-1 bg-transparent border-0 cursor-pointer p-1"
+        class="flex flex-col gap-1 bg-transparent border-0 cursor-pointer p-1 shrink-0"
         aria-label="Open navigation">
         <span class="block w-5 bg-mist rounded" style="height:1.5px;"></span>
         <span class="block w-5 bg-mist rounded" style="height:1.5px;"></span>
         <span class="block w-5 bg-mist rounded" style="height:1.5px;"></span>
       </button>
-      <a href="{{ "/" | relative_url }}" class="w-8 h-8 rounded-full bg-ink text-white flex items-center justify-center text-xs font-medium no-underline" aria-label="{{ site.title }} home">TK</a>
+      <a href="{{ "/" | relative_url }}" class="font-display text-white text-xl font-medium no-underline" aria-label="{{ site.title }} home">Tom Kuhn</a>
     </header>
 
     <!-- Scroll progress -->
     <div id="progress-track" aria-hidden="true">
       <div id="progress-fill"></div>
     </div>
+
+    <!-- Page header: sticky, full-width, consistent across all pages -->
+    {% if page.show_page_header %}
+    {% assign page_heading = page.heading | default: page.title %}
+    <header id="page-header" class="sticky top-14 md:top-0 z-30 px-8 py-6 border-b border-transparent transition-colors duration-200" aria-label="Page title">
+      <h1 class="font-display text-5xl font-medium leading-tight tracking-tight text-obsidian">{{ page_heading }}</h1>
+      {% if page.subtitle %}
+      <p class="text-base text-storm mt-3 leading-relaxed">{{ page.subtitle }}</p>
+      {% endif %}
+    </header>
+    {% endif %}
 
     <main class="flex-1 px-8 py-8 max-w-[900px] w-full" id="main-content">
       {{ content }}

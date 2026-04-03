@@ -50,4 +50,17 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', checkAndUpdate, { passive: true });
 
+  // ── Page header: sticky pinned state ──────────────────────────────────────
+  var pageHeader = document.getElementById('page-header');
+
+  if (pageHeader) {
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) {
+        pageHeader.classList.add('is-pinned');
+      } else {
+        pageHeader.classList.remove('is-pinned');
+      }
+    }, { passive: true });
+  }
+
 });

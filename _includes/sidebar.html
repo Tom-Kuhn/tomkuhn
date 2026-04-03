@@ -1,27 +1,31 @@
-<div class="flex items-center gap-4 mb-8 shrink-0">
-  <a href="{{ "/" | relative_url }}" class="w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-sm font-medium shrink-0 no-underline" aria-label="{{ site.title }} home">TK</a>
+<a href="{{ "/" | relative_url }}" class="flex items-center gap-4 mb-8 shrink-0 no-underline hover:opacity-80 transition-opacity" aria-label="{{ site.title }} home">
+  <span class="w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-sm font-medium shrink-0">TK</span>
   <div class="sidebar-text flex flex-col overflow-hidden transition-opacity duration-150 whitespace-nowrap">
-    <span class="text-white text-sm font-medium">{{ site.title }}</span>
+    <span class="text-white text-base font-medium font-display">{{ site.title }}</span>
     <span class="text-storm text-xs mt-1">{{ site.tagline }}</span>
   </div>
-</div>
+</a>
 
 <nav class="flex flex-col gap-2 flex-1" aria-label="Primary">
-  <a href="{{ "/" | relative_url }}"          class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+  <a href="{{ "/" | relative_url }}"          class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
     <span uk-icon="icon: user; ratio: 0.85" class="shrink-0"></span>
     Profile
   </a>
-  <a href="{{ "/blog/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/blog" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+  <a href="{{ "/blog/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/blog" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
     <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0"></span>
     Blog
   </a>
-  <a href="{{ "/portfolio/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/portfolio" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+  <a href="{{ "/portfolio/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/portfolio" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
     <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0"></span>
     Portfolio
   </a>
-  <a href="{{ "/contact/" | relative_url }}"   class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+  <a href="{{ "/contact/" | relative_url }}"   class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
     <span uk-icon="icon: mail; ratio: 0.85" class="shrink-0"></span>
     Contact
+  </a>
+  <a href="{{ "/search/" | relative_url }}"    class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/search" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+    <span uk-icon="icon: search; ratio: 0.85" class="shrink-0"></span>
+    Search
   </a>
 </nav>
 
