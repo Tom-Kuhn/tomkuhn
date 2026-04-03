@@ -9,7 +9,6 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* ============================================================
@@ -29,7 +28,7 @@ body {
     padding-right: 0;
   }
 
-  body.sidebar-collapsed #main-wrap { margin-left: 4rem; }
+  body.sidebar-collapsed #main-wrap { margin-left: 4rem; } /* collapsed = 64px; expanded = 280px via Tailwind */
 
   body.sidebar-collapsed #desktop-sidebar .brand-mark {
     display: flex;
@@ -58,6 +57,7 @@ body {
     display: none;
   }
 
+  /* overrides self-start Tailwind class on the toggle button */
   body.sidebar-collapsed #desktop-sidebar #sidebar-toggle {
     align-self: center;
     margin-left: auto;
@@ -126,6 +126,98 @@ button:focus-visible {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+/* ============================================================
+   Rouge syntax highlighting
+   Nine visually distinct, slightly desaturated hues on #F5F6F8.
+   ─────────────────────────────────────────────────────────────
+   green  #3D9147  comments, HTML attributes
+   blue   #2B6CC7  keywords, HTML tags
+   amber  #B8720E  strings
+   purple #7B3DBF  numbers, decorators
+   teal   #1B8585  functions & methods
+   rose   #B5234F  classes & types
+   sky    #1E7AB0  built-ins
+   red    #BF2E2E  constants, errors
+   gray   #6B7280  operators, punctuation
+   ============================================================ */
+figure.highlight,
+div.highlight {
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #E2E4EA;
+}
+
+figure.highlight pre,
+div.highlight pre {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  background: #F5F6F8;
+  overflow-x: auto;
+  font-family: 'Fira Code', 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #1C1D21;
+}
+
+/* Comments — clear sage green */
+.highlight .c,  .highlight .c1, .highlight .cm,
+.highlight .cp, .highlight .cs, .highlight .ch { color: #3D9147; font-style: italic; }
+
+/* Keywords — vivid slate blue */
+.highlight .k,  .highlight .kc, .highlight .kd,
+.highlight .kn, .highlight .kp, .highlight .kr,
+.highlight .ow { color: #2B6CC7; font-weight: 500; }
+
+/* Strings — rich warm amber */
+.highlight .s,  .highlight .s1, .highlight .s2,
+.highlight .sb, .highlight .sc, .highlight .sd,
+.highlight .se, .highlight .sh, .highlight .si,
+.highlight .sl, .highlight .ss, .highlight .sx { color: #B8720E; }
+
+/* Numbers — vivid purple */
+.highlight .m,  .highlight .mb, .highlight .mf,
+.highlight .mh, .highlight .mi, .highlight .mo,
+.highlight .il { color: #7B3DBF; }
+
+/* Functions & methods — vivid teal */
+.highlight .nf, .highlight .fm { color: #1B8585; font-weight: 500; }
+
+/* Classes & types — vivid rose */
+.highlight .nc, .highlight .kt { color: #B5234F; }
+
+/* Decorators — purple (same family as numbers) */
+.highlight .nd { color: #7B3DBF; font-style: italic; }
+
+/* Built-ins — clear sky blue */
+.highlight .nb, .highlight .bp { color: #1E7AB0; }
+
+/* Constants — clear red */
+.highlight .no { color: #BF2E2E; }
+
+/* HTML/XML tag names — same blue as keywords */
+.highlight .nt { color: #2B6CC7; }
+
+/* HTML/XML attributes — same green as comments */
+.highlight .na { color: #3D9147; }
+
+/* Namespace */
+.highlight .nn { color: #B5234F; }
+
+/* Operators & punctuation — neutral gray */
+.highlight .o  { color: #6B7280; }
+.highlight .p  { color: #6B7280; }
+
+/* Variables */
+.highlight .nv, .highlight .vc,
+.highlight .vg, .highlight .vi { color: #1C1D21; }
+
+/* Errors — red with faint background */
+.highlight .err { color: #BF2E2E; background: rgba(191,46,46,0.08); border-radius: 2px; }
+
+/* Highlighted line */
+.highlight .hll { background: rgba(43,108,199,0.08); display: block; margin: 0 -1.5rem; padding: 0 1.5rem; }
 
 /* ============================================================
    Page header (sticky, layout-level)

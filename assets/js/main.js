@@ -28,11 +28,19 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!progressFill || !progressTrack) return;
     if (!isScrollable()) return;
 
-    var scrollTop = window.scrollY || document.documentElement.scrollTop;
-    var maxScroll  = document.body.scrollHeight - window.innerHeight;
-    var pct        = maxScroll > 0 ? Math.min((scrollTop / maxScroll) * 100, 100) : 0;
+    var maxScroll = document.body.scrollHeight - window.innerHeight;
+    var pct       = maxScroll > 0 ? Math.min((window.scrollY / maxScroll) * 100, 100) : 0;
 
     progressFill.style.height = pct + '%';
+  }
+
+  var pageHeader = document.getElementById('page-header');
+
+  function onScroll() {
+    updateProgress();
+    if (pageHeader) {
+      pageHeader.classList.toggle('is-pinned', window.scrollY > 60);
+    }
   }
 
   function checkAndUpdate() {
@@ -41,21 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   checkAndUpdate();
-  window.addEventListener('load', checkAndUpdate);
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  window.addEventListener('load', checkAndUpdate, { once: true });
+  window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', checkAndUpdate, { passive: true });
-
-  // ── Page header: sticky pinned state ──────────────────────────────────────
-  var pageHeader = document.getElementById('page-header');
-
-  if (pageHeader) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 60) {
-        pageHeader.classList.add('is-pinned');
-      } else {
-        pageHeader.classList.remove('is-pinned');
-      }
-    }, { passive: true });
-  }
 
 });

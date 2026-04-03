@@ -6,7 +6,10 @@
       "Bash(bundle update:*)",
       "Bash(wc -c \"D:/Tom/Work/tomkuhn/_posts/\"*.md)",
       "Bash(gem search:*)",
-      "Bash(head -5 /d/Tom/Work/tomkuhn/_posts/*.md)"
+      "Bash(head -5 /d/Tom/Work/tomkuhn/_posts/*.md)",
+      "Bash(git -C \"D:/Tom/Work/tomkuhn\" log --oneline -3)",
+      "Bash(git -C \"D:/Tom/Work/tomkuhn\" diff HEAD~1 HEAD -- 404.html _includes/head.html _includes/sidebar.html _layouts/default.html _layouts/post.html assets/css/main.scss assets/js/main.js blog.html contact.html index.html portfolio.html)",
+      "Bash(git:*)"
     ]
   }
 }
