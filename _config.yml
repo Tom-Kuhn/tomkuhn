@@ -6,13 +6,16 @@ description: >-
   and growing high-performing engineering teams.
 baseurl: ""
 url: "https://tomkuhn.co.uk"
-github_username: tomkuhn
-linkedin_username: tomkuhn
+github_username: tom-kuhn
+linkedin_username: tom-c-kuhn
 formspree_id: YOUR_FORMSPREE_ID
 
 author:
   name: Tom Kuhn
   email: tom@tomkuhn.co.uk
+  twitter: Tom_Kuhn
+
+permalink: /writing/:title/
 
 twitter:
   username: tomkuhn
@@ -21,8 +24,8 @@ twitter:
 social:
   name: Tom Kuhn
   links:
-    - https://github.com/tomkuhn
-    - https://www.linkedin.com/in/tomkuhn
+    - https://github.com/tom-kuhn
+    - https://www.linkedin.com/in/tom-c-kuhn
 
 highlighter: rouge
 markdown: kramdown
