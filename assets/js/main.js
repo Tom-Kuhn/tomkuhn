@@ -5,11 +5,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var COLLAPSED_KEY = 'tk-sidebar-collapsed';
 
   if (sidebarToggle) {
-    // Restore saved state
-    if (localStorage.getItem(COLLAPSED_KEY) === 'true') {
-      document.body.classList.add('sidebar-collapsed');
-    }
-
     sidebarToggle.addEventListener('click', function () {
       var isCollapsed = document.body.classList.toggle('sidebar-collapsed');
       localStorage.setItem(COLLAPSED_KEY, isCollapsed);
