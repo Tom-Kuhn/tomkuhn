@@ -5,168 +5,154 @@ permalink: /
 description: "Tom Kuhn — Staff Engineer and architect with a passion for building scalable, resilient systems and growing high-performing engineering teams."
 ---
 
-<div class="profile-page">
+<!-- Summary -->
+<section class="flex flex-col sm:flex-row items-start gap-8 mb-16">
+  <div class="w-[72px] h-[72px] rounded-full bg-ink text-white flex items-center justify-center text-xl font-medium shrink-0">TK</div>
 
-  <!-- Summary -->
-  <section class="profile-hero">
-    <div class="profile-photo" aria-label="Tom Kuhn">TK</div>
+  <div>
+    <h1 class="font-display text-4xl font-medium leading-tight tracking-tight mb-2">Tom Kuhn</h1>
+    <p class="text-sm text-storm mb-6">Staff Engineer &nbsp;·&nbsp; Architect &nbsp;·&nbsp; Problem solver</p>
 
-    <div class="profile-info">
-      <h1 class="profile-name">Tom Kuhn</h1>
-      <p class="profile-tagline">Staff Engineer &nbsp;·&nbsp; Architect &nbsp;·&nbsp; Problem solver</p>
-
-      <div class="profile-links">
-        <a href="mailto:{{ site.email }}" class="profile-link">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          {{ site.email }}
-        </a>
-        <a href="https://github.com/{{ site.github_username }}" class="profile-link" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-          GitHub
-        </a>
-        <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="profile-link" target="_blank" rel="noopener">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          LinkedIn
-        </a>
-      </div>
-
-      <p class="profile-bio">
-        I'm a Staff Engineer at American Express, where I lead architecture decisions across payment processing systems serving millions of customers.
-        I specialise in distributed systems, platform engineering, and growing engineering teams that build things meant to last.
-        With over a decade in the industry, I've helped organisations scale from startup to enterprise —
-        and I care deeply about clarity of thought, quality of craft, and the people doing the work.
-      </p>
+    <div class="flex flex-wrap gap-4 mb-8">
+      <a href="mailto:{{ site.email }}" class="inline-flex items-center gap-2 text-sm text-accent-600 no-underline hover:text-accent-800 transition-colors">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        {{ site.email }}
+      </a>
+      <a href="https://github.com/{{ site.github_username }}" class="inline-flex items-center gap-2 text-sm text-accent-600 no-underline hover:text-accent-800 transition-colors" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        GitHub
+      </a>
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="inline-flex items-center gap-2 text-sm text-accent-600 no-underline hover:text-accent-800 transition-colors" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        LinkedIn
+      </a>
     </div>
-  </section>
 
-  <!-- Experience -->
-  <section class="cv-section" id="experience">
-    <h2 class="section-heading">Experience</h2>
+    <p class="text-base text-storm leading-relaxed max-w-[600px]">
+      I'm a Staff Engineer at American Express, where I lead architecture decisions across payment processing systems serving millions of customers.
+      I specialise in distributed systems, platform engineering, and growing engineering teams that build things meant to last.
+      With over a decade in the industry, I've helped organisations scale from startup to enterprise —
+      and I care deeply about clarity of thought, quality of craft, and the people doing the work.
+    </p>
+  </div>
+</section>
 
-    <div class="timeline">
+<!-- Experience -->
+<section class="mb-16" id="experience">
+  <h2 class="font-display text-3xl font-medium tracking-tight mb-8 pb-4 border-b border-mist">Experience</h2>
 
-      <div class="timeline-item">
-        <div class="timeline-meta">
-          <span class="timeline-company">American Express</span>
-          <span class="timeline-date">2022 — present</span>
-        </div>
-        <p class="timeline-role">Staff Engineer</p>
-        <div class="timeline-body">
-          <ul>
-            <li>Lead architectural design for a core payment processing platform serving 30M+ customers globally.</li>
-            <li>Define technical strategy across three product groups, partnering with VPs of Product and Data.</li>
-            <li>Mentor a cohort of senior and principal engineers; introduced engineering-wide RFC process adopted by 12 teams.</li>
-            <li>Drove migration of legacy batch-processing pipeline to event-driven architecture, reducing settlement latency by 70%.</li>
-          </ul>
-        </div>
+  <div class="flex flex-col gap-8">
+
+    <div class="pl-6 border-l border-mist">
+      <div class="flex justify-between items-baseline gap-4 mb-2 flex-wrap">
+        <span class="text-base font-medium text-obsidian">American Express</span>
+        <span class="text-xs text-storm tracking-wide whitespace-nowrap">2022 — present</span>
       </div>
-
-      <div class="timeline-item">
-        <div class="timeline-meta">
-          <span class="timeline-company">Placeholder Financial Tech Co.</span>
-          <span class="timeline-date">2019 — 2022</span>
-        </div>
-        <p class="timeline-role">Senior Software Engineer → Lead Engineer</p>
-        <div class="timeline-body">
-          <ul>
-            <li>Built and scaled a real-time data pipeline processing 50M events per day with sub-100ms P99 latency.</li>
-            <li>Led decomposition of a 1.2M-line monolith into 18 independently deployable services over 18 months.</li>
-            <li>Grew the platform team from 3 to 12 engineers; established hiring bar and onboarding programme.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-meta">
-          <span class="timeline-company">Placeholder Software Studio</span>
-          <span class="timeline-date">2016 — 2019</span>
-        </div>
-        <p class="timeline-role">Software Engineer</p>
-        <div class="timeline-body">
-          <ul>
-            <li>Developed core banking APIs consumed by iOS, Android, and web clients across five markets.</li>
-            <li>Introduced consumer-driven contract testing; reduced integration failures in CI by 60%.</li>
-            <li>Contributed to open-source Kafka consumer library used by 200+ downstream services.</li>
-          </ul>
-        </div>
-      </div>
-
+      <p class="text-sm text-accent-600 mb-4">Staff Engineer</p>
+      <ul class="flex flex-col gap-2 list-none p-0">
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Lead architectural design for a core payment processing platform serving 30M+ customers globally.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Define technical strategy across three product groups, partnering with VPs of Product and Data.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Mentor a cohort of senior and principal engineers; introduced engineering-wide RFC process adopted by 12 teams.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Drove migration of legacy batch-processing pipeline to event-driven architecture, reducing settlement latency by 70%.</li>
+      </ul>
     </div>
-  </section>
 
-  <!-- Education -->
-  <section class="cv-section" id="education">
-    <h2 class="section-heading">Education</h2>
-
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-meta">
-          <span class="timeline-company">University of Placeholder</span>
-          <span class="timeline-date">2012 — 2016</span>
-        </div>
-        <p class="timeline-role">BSc Computer Science — First Class Honours</p>
-        <div class="timeline-body">
-          <ul>
-            <li>Dissertation: distributed consensus algorithms and their practical latency trade-offs.</li>
-            <li>Teaching assistant for Algorithms & Data Structures in final year.</li>
-          </ul>
-        </div>
+    <div class="pl-6 border-l border-mist">
+      <div class="flex justify-between items-baseline gap-4 mb-2 flex-wrap">
+        <span class="text-base font-medium text-obsidian">Placeholder Financial Tech Co.</span>
+        <span class="text-xs text-storm tracking-wide whitespace-nowrap">2019 — 2022</span>
       </div>
-
+      <p class="text-sm text-accent-600 mb-4">Senior Software Engineer → Lead Engineer</p>
+      <ul class="flex flex-col gap-2 list-none p-0">
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Built and scaled a real-time data pipeline processing 50M events per day with sub-100ms P99 latency.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Led decomposition of a 1.2M-line monolith into 18 independently deployable services over 18 months.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Grew the platform team from 3 to 12 engineers; established hiring bar and onboarding programme.</li>
+      </ul>
     </div>
-  </section>
 
-  <!-- Skills -->
-  <section class="cv-section" id="skills">
-    <h2 class="section-heading">Skills</h2>
-
-    <div class="skills-grid">
-
-      <div class="skill-category">
-        <p class="skill-category-label">Architecture</p>
-        <div class="skill-badges">
-          <span class="badge badge-neutral">Distributed systems</span>
-          <span class="badge badge-neutral">Microservices</span>
-          <span class="badge badge-neutral">Event-driven</span>
-          <span class="badge badge-neutral">Platform engineering</span>
-          <span class="badge badge-neutral">Domain-driven design</span>
-        </div>
+    <div class="pl-6 border-l border-mist">
+      <div class="flex justify-between items-baseline gap-4 mb-2 flex-wrap">
+        <span class="text-base font-medium text-obsidian">Placeholder Software Studio</span>
+        <span class="text-xs text-storm tracking-wide whitespace-nowrap">2016 — 2019</span>
       </div>
-
-      <div class="skill-category">
-        <p class="skill-category-label">Languages</p>
-        <div class="skill-badges">
-          <span class="badge badge-neutral">Java</span>
-          <span class="badge badge-neutral">TypeScript</span>
-          <span class="badge badge-neutral">Python</span>
-          <span class="badge badge-neutral">Go</span>
-          <span class="badge badge-neutral">SQL</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <p class="skill-category-label">Cloud &amp; infrastructure</p>
-        <div class="skill-badges">
-          <span class="badge badge-neutral">AWS</span>
-          <span class="badge badge-neutral">Kubernetes</span>
-          <span class="badge badge-neutral">Terraform</span>
-          <span class="badge badge-neutral">Kafka</span>
-          <span class="badge badge-neutral">Datadog</span>
-        </div>
-      </div>
-
-      <div class="skill-category">
-        <p class="skill-category-label">Leadership</p>
-        <div class="skill-badges">
-          <span class="badge badge-neutral">Technical strategy</span>
-          <span class="badge badge-neutral">Engineering mentorship</span>
-          <span class="badge badge-neutral">Hiring</span>
-          <span class="badge badge-neutral">RFC facilitation</span>
-        </div>
-      </div>
-
+      <p class="text-sm text-accent-600 mb-4">Software Engineer</p>
+      <ul class="flex flex-col gap-2 list-none p-0">
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Developed core banking APIs consumed by iOS, Android, and web clients across five markets.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Introduced consumer-driven contract testing; reduced integration failures in CI by 60%.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Contributed to open-source Kafka consumer library used by 200+ downstream services.</li>
+      </ul>
     </div>
-  </section>
 
-</div>
+  </div>
+</section>
+
+<!-- Education -->
+<section class="mb-16" id="education">
+  <h2 class="font-display text-3xl font-medium tracking-tight mb-8 pb-4 border-b border-mist">Education</h2>
+
+  <div class="flex flex-col gap-8">
+    <div class="pl-6 border-l border-mist">
+      <div class="flex justify-between items-baseline gap-4 mb-2 flex-wrap">
+        <span class="text-base font-medium text-obsidian">University of Placeholder</span>
+        <span class="text-xs text-storm tracking-wide whitespace-nowrap">2012 — 2016</span>
+      </div>
+      <p class="text-sm text-accent-600 mb-4">BSc Computer Science — First Class Honours</p>
+      <ul class="flex flex-col gap-2 list-none p-0">
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Dissertation: distributed consensus algorithms and their practical latency trade-offs.</li>
+        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-mist">Teaching assistant for Algorithms &amp; Data Structures in final year.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section class="mb-16" id="skills">
+  <h2 class="font-display text-3xl font-medium tracking-tight mb-8 pb-4 border-b border-mist">Skills</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+
+    <div>
+      <p class="text-xs uppercase tracking-widest text-storm mb-4">Architecture</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Distributed systems</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Microservices</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Event-driven</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Platform engineering</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Domain-driven design</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-widest text-storm mb-4">Languages</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Java</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">TypeScript</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Python</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Go</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">SQL</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-widest text-storm mb-4">Cloud &amp; infrastructure</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">AWS</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Kubernetes</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Terraform</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Kafka</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Datadog</span>
+      </div>
+    </div>
+
+    <div>
+      <p class="text-xs uppercase tracking-widest text-storm mb-4">Leadership</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Technical strategy</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Engineering mentorship</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Hiring</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">RFC facilitation</span>
+      </div>
+    </div>
+
+  </div>
+</section>

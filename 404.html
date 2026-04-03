@@ -3,23 +3,15 @@ permalink: /404.html
 layout: default
 ---
 
-<style type="text/css" media="screen">
-  .container {
-    margin: 10px auto;
-    max-width: 600px;
-    text-align: center;
-  }
-  h1 {
-    margin: 30px 0;
-    font-size: 4em;
-    line-height: 1;
-    letter-spacing: -1px;
-  }
-</style>
-
-<div class="container">
-  <h1>404</h1>
-
-  <p><strong>Page not found :(</strong></p>
-  <p>The requested page could not be found.</p>
+<div class="flex flex-col items-center justify-center min-h-[60vh] text-center">
+  <p class="font-display text-8xl font-medium text-mist leading-none mb-6">404</p>
+  <h1 class="font-display text-2xl font-medium text-obsidian mb-3">Page not found</h1>
+  <p class="text-sm text-storm mb-8">The page you're looking for doesn't exist or has been moved.</p>
+  <a href="{{ "/" | relative_url }}" class="inline-flex items-center gap-2 text-sm font-medium text-accent-600 no-underline hover:text-accent-800 transition-colors">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="19" y1="12" x2="5" y2="12"/>
+      <polyline points="12 19 5 12 12 5"/>
+    </svg>
+    Back to home
+  </a>
 </div>

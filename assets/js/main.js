@@ -16,30 +16,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // ── Sidebar: mobile open/close ─────────────────────────────────────────────
-  var hamburger      = document.getElementById('hamburger');
-  var sidebarOverlay = document.getElementById('sidebar-overlay');
-
-  function openMobile() {
-    document.body.classList.add('sidebar-mobile-open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMobile() {
-    document.body.classList.remove('sidebar-mobile-open');
-    document.body.style.overflow = '';
-  }
-
-  if (hamburger)      { hamburger.addEventListener('click', openMobile); }
-  if (sidebarOverlay) { sidebarOverlay.addEventListener('click', closeMobile); }
-
-  // Close mobile sidebar when a nav link is tapped
-  document.querySelectorAll('.nav-link').forEach(function (link) {
-    link.addEventListener('click', function () {
-      if (window.innerWidth <= 768) { closeMobile(); }
-    });
-  });
-
   // ── Scroll progress indicator ──────────────────────────────────────────────
   var progressTrack = document.getElementById('progress-track');
   var progressFill  = document.getElementById('progress-fill');
@@ -69,10 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
     updateProgress();
   }
 
-  // Initial check (after fonts/images may alter page height)
   checkAndUpdate();
   window.addEventListener('load', checkAndUpdate);
-
   window.addEventListener('scroll', updateProgress, { passive: true });
   window.addEventListener('resize', checkAndUpdate, { passive: true });
 

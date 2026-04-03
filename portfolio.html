@@ -5,82 +5,81 @@ permalink: /portfolio/
 description: "Selected work by Tom Kuhn — Staff Engineer and architect. Projects spanning distributed systems, platform engineering, and engineering leadership."
 ---
 
-<div class="portfolio-page">
+<div>
+  <h1 class="font-display text-4xl font-medium tracking-tight leading-tight mb-4">Portfolio</h1>
+  <p class="text-base text-storm mb-12">A selection of work, writing, and talks.</p>
 
-  <h1 class="page-title">Portfolio</h1>
-  <p class="page-subtitle">A selection of work, writing, and talks.</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-  <div class="portfolio-grid">
-
-    <div class="portfolio-card">
-      <p class="portfolio-card-type">Case study</p>
-      <h2 class="portfolio-card-title">Payment platform migration</h2>
-      <p class="portfolio-card-desc">
+    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+      <p class="text-xs uppercase tracking-widest text-storm">Case study</p>
+      <h2 class="font-display text-xl font-medium text-obsidian">Payment platform migration</h2>
+      <p class="text-sm text-storm leading-relaxed flex-1">
         An architectural case study on decomposing a legacy batch-processing settlement system into an event-driven microservices platform — covering the trade-offs, the failures, and what I'd do differently.
       </p>
-      <div class="portfolio-card-tags">
-        <span class="badge badge-neutral">Kafka</span>
-        <span class="badge badge-neutral">Java</span>
-        <span class="badge badge-neutral">AWS</span>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Kafka</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Java</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">AWS</span>
       </div>
-      <div class="portfolio-card-footer">
-        <a href="#" class="btn-outline" target="_blank" rel="noopener">
+      <div>
+        <a href="#" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian inline-flex items-center gap-2" target="_blank" rel="noopener">
           Read
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
       </div>
     </div>
 
-    <div class="portfolio-card">
-      <p class="portfolio-card-type">Open source</p>
-      <h2 class="portfolio-card-title">Event-driven microservices template</h2>
-      <p class="portfolio-card-desc">
+    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+      <p class="text-xs uppercase tracking-widest text-storm">Open source</p>
+      <h2 class="font-display text-xl font-medium text-obsidian">Event-driven microservices template</h2>
+      <p class="text-sm text-storm leading-relaxed flex-1">
         A production-ready project template for Java microservices with Kafka, Outbox Pattern, and Testcontainers-based integration testing. Used as the starting point for five internal teams.
       </p>
-      <div class="portfolio-card-tags">
-        <span class="badge badge-neutral">Java</span>
-        <span class="badge badge-neutral">Spring Boot</span>
-        <span class="badge badge-neutral">Kafka</span>
-        <span class="badge badge-neutral">Testcontainers</span>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Java</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Spring Boot</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Kafka</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Testcontainers</span>
       </div>
-      <div class="portfolio-card-footer">
-        <a href="https://github.com/{{ site.github_username }}" class="btn-outline" target="_blank" rel="noopener">
+      <div>
+        <a href="https://github.com/{{ site.github_username }}" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian inline-flex items-center gap-2" target="_blank" rel="noopener">
           View on GitHub
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
       </div>
     </div>
 
-    <div class="portfolio-card">
-      <p class="portfolio-card-type">Conference talk</p>
-      <h2 class="portfolio-card-title">Scaling engineering teams beyond the team</h2>
-      <p class="portfolio-card-desc">
+    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+      <p class="text-xs uppercase tracking-widest text-storm">Conference talk</p>
+      <h2 class="font-display text-xl font-medium text-obsidian">Scaling engineering teams beyond the team</h2>
+      <p class="text-sm text-storm leading-relaxed flex-1">
         A talk given at Placeholder Conference 2025 on how staff engineers multiply their impact by investing in process, documentation, and the engineers around them rather than personal output.
       </p>
-      <div class="portfolio-card-tags">
-        <span class="badge badge-neutral">Leadership</span>
-        <span class="badge badge-neutral">Staff engineering</span>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Leadership</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Staff engineering</span>
       </div>
-      <div class="portfolio-card-footer">
-        <a href="#" class="btn-outline" target="_blank" rel="noopener">
+      <div>
+        <a href="#" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian inline-flex items-center gap-2" target="_blank" rel="noopener">
           Watch
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
       </div>
     </div>
 
-    <div class="portfolio-card">
-      <p class="portfolio-card-type">Technical writing</p>
-      <h2 class="portfolio-card-title">The practical guide to the Outbox Pattern</h2>
-      <p class="portfolio-card-desc">
+    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+      <p class="text-xs uppercase tracking-widest text-storm">Technical writing</p>
+      <h2 class="font-display text-xl font-medium text-obsidian">The practical guide to the Outbox Pattern</h2>
+      <p class="text-sm text-storm leading-relaxed flex-1">
         A deep-dive article on implementing the Transactional Outbox Pattern in production, including failure modes, monitoring, and a comparison of three common delivery guarantees.
       </p>
-      <div class="portfolio-card-tags">
-        <span class="badge badge-neutral">Distributed systems</span>
-        <span class="badge badge-neutral">Patterns</span>
+      <div class="flex flex-wrap gap-2">
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Distributed systems</span>
+        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist">Patterns</span>
       </div>
-      <div class="portfolio-card-footer">
-        <a href="#" class="btn-outline" target="_blank" rel="noopener">
+      <div>
+        <a href="#" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian inline-flex items-center gap-2" target="_blank" rel="noopener">
           Read
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
         </a>
@@ -88,5 +87,4 @@ description: "Selected work by Tom Kuhn — Staff Engineer and architect. Projec
     </div>
 
   </div>
-
 </div>

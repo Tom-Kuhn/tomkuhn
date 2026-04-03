@@ -1,24 +1,36 @@
-<aside class="sidebar" id="sidebar" aria-label="Site navigation">
-
-  <div class="sidebar-header">
-    <a href="{{ "/" | relative_url }}" class="brand-mark" aria-label="{{ site.title }} home">TK</a>
-    <div class="sidebar-identity">
-      <span class="sidebar-name">{{ site.title }}</span>
-      <span class="sidebar-tagline">{{ site.tagline }}</span>
-    </div>
+<div class="flex items-center gap-4 mb-8 shrink-0">
+  <a href="{{ "/" | relative_url }}" class="w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-sm font-medium shrink-0 no-underline" aria-label="{{ site.title }} home">TK</a>
+  <div class="sidebar-text flex flex-col overflow-hidden transition-opacity duration-150 whitespace-nowrap">
+    <span class="text-white text-sm font-medium">{{ site.title }}</span>
+    <span class="text-storm text-xs mt-1">{{ site.tagline }}</span>
   </div>
+</div>
 
-  <nav class="sidebar-nav" aria-label="Primary">
-    <a href="{{ "/" | relative_url }}"          class="nav-link{% if page.url == "/" %} active{% endif %}">Profile</a>
-    <a href="{{ "/blog/" | relative_url }}"      class="nav-link{% if page.url contains "/blog" %} active{% endif %}">Blog</a>
-    <a href="{{ "/portfolio/" | relative_url }}" class="nav-link{% if page.url contains "/portfolio" %} active{% endif %}">Portfolio</a>
-    <a href="{{ "/contact/" | relative_url }}"   class="nav-link{% if page.url contains "/contact" %} active{% endif %}">Contact</a>
-  </nav>
+<nav class="flex flex-col gap-2 flex-1" aria-label="Primary">
+  <a href="{{ "/" | relative_url }}"          class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+    <span uk-icon="icon: user; ratio: 0.85" class="shrink-0"></span>
+    Profile
+  </a>
+  <a href="{{ "/blog/" | relative_url }}"      class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/blog" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+    <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0"></span>
+    Blog
+  </a>
+  <a href="{{ "/portfolio/" | relative_url }}" class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/portfolio" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+    <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0"></span>
+    Portfolio
+  </a>
+  <a href="{{ "/contact/" | relative_url }}"   class="flex items-center gap-4 px-4 py-2 rounded-lg text-sm whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
+    <span uk-icon="icon: mail; ratio: 0.85" class="shrink-0"></span>
+    Contact
+  </a>
+</nav>
 
-  <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Collapse sidebar" title="Collapse sidebar">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <polyline points="15 18 9 12 15 6"/>
-    </svg>
-  </button>
-
-</aside>
+<button
+  id="sidebar-toggle"
+  class="mt-auto self-start flex items-center justify-center bg-transparent border border-white/10 rounded-lg text-storm hover:text-white hover:border-white/30 transition-colors w-8 h-8 cursor-pointer shrink-0"
+  aria-label="Collapse sidebar"
+  title="Collapse sidebar">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="sidebar-toggle-icon transition-transform duration-200">
+    <polyline points="15 18 9 12 15 6"/>
+  </svg>
+</button>
