@@ -1,0 +1,1 @@
+- [Tom Kuhn profile](user_tom.md) — Staff Eng at Amex, targeting Principal promotion, site should convey technical leadership

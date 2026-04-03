@@ -1,0 +1,1 @@
+- [Site configuration and SEO plugin setup](project_site_config.md) — plugins, url, canonical localhost issue, twitter:creator bug, redirect-from inactive

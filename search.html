@@ -1,0 +1,140 @@
+---
+layout: default
+title: Search
+subtitle: "Find posts and projects by keyword."
+show_page_header: true
+permalink: /search/
+description: "Search posts and portfolio items on Tom Kuhn's site."
+sitemap: false
+robots: "noindex, follow"
+---
+
+<div>
+
+  <input
+    type="search"
+    id="search-input"
+    class="uk-input w-full mb-8"
+    placeholder="Start typing to search..."
+    autocomplete="off"
+    aria-label="Search site content">
+
+  <div id="search-results">
+    <p class="text-sm text-storm"></p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script>
+(function () {
+  var searchData = [
+    {% for post in site.posts %}
+    {
+      "title": {{ post.title | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "excerpt": {{ post.excerpt | strip_html | truncate: 200 | jsonify }},
+      "tags": {{ post.tags | join: " " | jsonify }},
+      "content": {{ post.content | strip_html | truncate: 800 | jsonify }},
+      "type": "post",
+      "date": {{ post.date | date: "%B %-d, %Y" | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+    {% if site.posts.size > 0 %},{% endif %}
+    {
+      "title": "Payment platform migration",
+      "url": "#",
+      "excerpt": "An architectural case study on decomposing a legacy batch-processing settlement system into an event-driven microservices platform.",
+      "tags": "Kafka Java AWS",
+      "content": "An architectural case study on decomposing a legacy batch-processing settlement system into an event-driven microservices platform covering the trade-offs the failures and what I'd do differently.",
+      "type": "portfolio",
+      "date": ""
+    },
+    {
+      "title": "Event-driven microservices template",
+      "url": "https://github.com/{{ site.github_username }}",
+      "excerpt": "A production-ready project template for Java microservices with Kafka, Outbox Pattern, and Testcontainers-based integration testing.",
+      "tags": "Java Spring Boot Kafka Testcontainers",
+      "content": "A production-ready project template for Java microservices with Kafka Outbox Pattern and Testcontainers-based integration testing. Used as the starting point for five internal teams.",
+      "type": "portfolio",
+      "date": ""
+    },
+    {
+      "title": "Scaling engineering teams beyond the team",
+      "url": "#",
+      "excerpt": "A talk on how staff engineers multiply their impact by investing in process, documentation, and the engineers around them.",
+      "tags": "Leadership Staff engineering",
+      "content": "A talk given at Placeholder Conference 2025 on how staff engineers multiply their impact by investing in process documentation and the engineers around them rather than personal output.",
+      "type": "portfolio",
+      "date": ""
+    },
+    {
+      "title": "The practical guide to the Outbox Pattern",
+      "url": "#",
+      "excerpt": "A deep-dive article on implementing the Transactional Outbox Pattern in production, including failure modes, monitoring, and delivery guarantees.",
+      "tags": "Distributed systems Patterns",
+      "content": "A deep-dive article on implementing the Transactional Outbox Pattern in production including failure modes monitoring and a comparison of three common delivery guarantees.",
+      "type": "portfolio",
+      "date": ""
+    }
+  ];
+
+  var idx = lunr(function () {
+    this.ref('url');
+    this.field('title', { boost: 10 });
+    this.field('tags', { boost: 5 });
+    this.field('content');
+
+    searchData.forEach(function (doc) {
+      this.add(doc);
+    }, this);
+  });
+
+  var dataMap = {};
+  searchData.forEach(function (doc) {
+    dataMap[doc.url] = doc;
+  });
+
+  var input = document.getElementById('search-input');
+  var resultsContainer = document.getElementById('search-results');
+
+  input.addEventListener('input', function () {
+    var query = input.value.trim();
+
+    if (!query) {
+      resultsContainer.innerHTML = '<p class="text-sm text-storm"></p>';
+      return;
+    }
+
+    var results;
+    try {
+      results = idx.search(query + '*');
+    } catch (e) {
+      results = idx.search(query);
+    }
+
+    if (results.length === 0) {
+      resultsContainer.innerHTML = '<p class="text-sm text-storm">No results found.</p>';
+      return;
+    }
+
+    var html = '<div class="flex flex-col gap-6">';
+    results.forEach(function (result) {
+      var item = dataMap[result.ref];
+      if (!item) return;
+
+      var typeLabel = item.type === 'post' ? 'Blog post' : 'Portfolio';
+      var dateLine = item.date ? '<p class="text-xs text-storm tracking-wide mb-1">' + item.date + '</p>' : '';
+
+      html += '<article class="p-6 border border-mist rounded-xl shadow-sm bg-white hover:border-storm hover:shadow-md transition-all duration-150">';
+      html += '<p class="text-xs uppercase tracking-widest text-storm mb-2">' + typeLabel + '</p>';
+      html += dateLine;
+      html += '<h2 class="font-display text-xl font-medium mb-4"><a href="' + item.url + '" class="text-obsidian no-underline hover:text-accent-600 transition-colors">' + item.title + '</a></h2>';
+      html += '<p class="text-sm text-storm leading-relaxed">' + item.excerpt + '</p>';
+      html += '</article>';
+    });
+    html += '</div>';
+
+    resultsContainer.innerHTML = html;
+  });
+})();
+</script>
