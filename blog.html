@@ -13,10 +13,10 @@ description: "Thoughts on engineering, architecture, distributed systems, and bu
     <div class="flex flex-col gap-6">
       {% for post in site.posts %}
         <article class="p-8 border border-mist rounded-xl shadow-sm bg-white hover:border-storm hover:shadow-md transition-all duration-150">
-          <p class="text-xs text-storm tracking-wide mb-1">{{ post.date | date: "%B %-d, %Y" }}</p>
           <h2 class="font-display text-xl font-medium mb-4">
             <a href="{{ post.url | relative_url }}" class="text-obsidian no-underline hover:text-accent-600 transition-colors">{{ post.title }}</a>
           </h2>
+          <p class="text-xs text-storm tracking-wide mb-1">{{ post.date | date: "%B %-d, %Y" }}</p>
           {% if post.excerpt %}
             <p class="text-sm text-storm leading-relaxed mb-4">{{ post.excerpt | strip_html | truncate: 200 }}</p>
           {% endif %}

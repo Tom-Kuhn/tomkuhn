@@ -13,39 +13,56 @@ body {
 }
 
 /* ============================================================
-   Desktop sidebar collapse state
+   Sidebar brand mark: hidden when expanded, shown when collapsed
    ============================================================ */
-body.sidebar-collapsed #desktop-sidebar {
-  width: 4rem;
-  padding-left: 0;
-  padding-right: 0;
+#desktop-sidebar .brand-mark {
+  display: none;
 }
 
-body.sidebar-collapsed #main-wrap { margin-left: 4rem; }
+/* ============================================================
+   Desktop sidebar collapse state (desktop only — md+)
+   ============================================================ */
+@media (min-width: 768px) {
+  body.sidebar-collapsed #desktop-sidebar {
+    width: 4rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-body.sidebar-collapsed #desktop-sidebar .sidebar-text {
-  opacity: 0;
-  pointer-events: none;
-  width: 0;
-}
+  body.sidebar-collapsed #main-wrap { margin-left: 4rem; }
 
-body.sidebar-collapsed #desktop-sidebar .sidebar-toggle-icon {
-  transform: rotate(180deg);
-}
+  body.sidebar-collapsed #desktop-sidebar .brand-mark {
+    display: flex;
+  }
 
-/* Centre every item when collapsed */
-body.sidebar-collapsed #desktop-sidebar > a,
-body.sidebar-collapsed #desktop-sidebar nav a {
-  justify-content: center;
-  padding-left: 0;
-  padding-right: 0;
-  gap: 0;
-}
+  body.sidebar-collapsed #desktop-sidebar .sidebar-text {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+  }
 
-body.sidebar-collapsed #desktop-sidebar #sidebar-toggle {
-  align-self: center;
-  margin-left: auto;
-  margin-right: auto;
+  body.sidebar-collapsed #desktop-sidebar .sidebar-toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  /* Centre every item when collapsed */
+  body.sidebar-collapsed #desktop-sidebar > a,
+  body.sidebar-collapsed #desktop-sidebar nav a {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 0;
+  }
+
+  body.sidebar-collapsed #desktop-sidebar .nav-label {
+    display: none;
+  }
+
+  body.sidebar-collapsed #desktop-sidebar #sidebar-toggle {
+    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 /* ============================================================

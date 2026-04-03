@@ -4,13 +4,7 @@ layout: default
 
 <article class="max-w-[680px]">
 
-  <header class="mb-12 pb-8 border-b border-mist">
-    <p class="text-xs text-storm tracking-wide mb-4">{{ page.date | date: "%B %-d, %Y" }}</p>
-    <h1 class="font-display text-4xl font-medium leading-tight tracking-tight text-obsidian">{{ page.title }}</h1>
-    {% if page.subtitle %}
-      <p class="text-lg text-storm mt-4">{{ page.subtitle }}</p>
-    {% endif %}
-  </header>
+  <p class="text-xs text-storm tracking-wide mb-10">{{ page.date | date: "%B %-d, %Y" }}</p>
 
   <div class="prose max-w-none">
     {{ content }}
