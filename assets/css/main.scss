@@ -118,6 +118,14 @@ body {
 }
 
 /* ============================================================
+   Sidebar title — suppress UIKit's a:hover underline
+   ============================================================ */
+#desktop-sidebar > a,
+#desktop-sidebar > a:hover {
+  text-decoration: none;
+}
+
+/* ============================================================
    Focus-visible styles
    ============================================================ */
 a:focus-visible,
@@ -220,12 +228,31 @@ div.highlight pre {
 .highlight .hll { background: rgba(43,108,199,0.08); display: block; margin: 0 -1.5rem; padding: 0 1.5rem; }
 
 /* ============================================================
+   Timeline — vertical connector line between role dots
+   ============================================================ */
+.timeline-border {
+  position: relative;
+  padding-left: 1rem;
+}
+
+/* Draw a connector line from each role's dot center to the next */
+.timeline-border [role="listitem"]:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: -1px;        /* aligned with dot centre (dot: left:0 - translate 5px + 4px half-width = -1px) */
+  top: 10px;         /* dot centre (top-offset 6px + half dot height 4px) */
+  bottom: -10px;     /* extends to next item's dot centre */
+  width: 1px;
+  background-color: #7A95A8; /* accent-400 — matches dot colour */
+}
+
+/* ============================================================
    Page header (sticky, layout-level)
    ============================================================ */
 #page-header {
-  background: rgba(255,255,255,0.97);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  background: rgba(255,255,255,0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 #page-header.is-pinned {

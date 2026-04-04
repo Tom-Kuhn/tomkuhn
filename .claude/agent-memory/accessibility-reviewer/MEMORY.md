@@ -1,0 +1,1 @@
+- [Codebase accessibility baseline](project_codebase.md) — resolved colour tokens, skip-link absence, focus styles, landmark structure, heading hierarchy

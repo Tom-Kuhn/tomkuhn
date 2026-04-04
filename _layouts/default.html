@@ -4,6 +4,7 @@
   {% include head.html %}
 </head>
 <body class="font-sans antialiased text-obsidian bg-white">
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-white focus:text-obsidian focus:rounded focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-600">Skip to main content</a>
 <script>if(localStorage.getItem('tk-sidebar-collapsed')==='true')document.body.classList.add('sidebar-collapsed');</script>
 
   <!-- Desktop sidebar -->
@@ -43,7 +44,7 @@
   <div id="main-wrap" class="md:ml-[280px] min-h-screen flex flex-col transition-all duration-200">
 
     <!-- Mobile header -->
-    <header class="md:hidden flex items-center gap-4 px-6 py-4 bg-obsidian sticky top-0 z-40" aria-label="Mobile navigation">
+    <header class="md:hidden flex items-center gap-4 px-6 py-4 bg-obsidian/75 backdrop-blur-md sticky top-0 z-40" aria-label="Mobile navigation">
       <button
         uk-toggle="target: #mobile-nav"
         type="button"
