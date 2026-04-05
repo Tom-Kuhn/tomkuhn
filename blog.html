@@ -14,14 +14,14 @@ description: "Thoughts on engineering, architecture, distributed systems, and bu
     <div class="flex flex-col gap-6">
       {% for post in real_posts %}
         <article class="writing-card">
-          <h2 class="font-display text-xl font-medium">
-            <a href="{{ post.url | relative_url }}" class="text-obsidian no-underline hover:text-accent-600 transition-colors">{{ post.title }}</a>
+          <h2 class="card-title">
+            <a href="{{ post.url | relative_url }}" class="card-title-link">{{ post.title }}</a>
           </h2>
-          <p class="text-xs text-storm tracking-wide">{{ post.date | date: "%B %-d, %Y" }}</p>
+          <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
           {% if post.description %}
-            <p class="text-sm text-storm leading-relaxed flex-1">{{ post.description }}</p>
+            <p class="body-text flex-1">{{ post.description }}</p>
           {% elsif post.excerpt %}
-            <p class="text-sm text-storm leading-relaxed flex-1">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+            <p class="body-text flex-1">{{ post.excerpt | strip_html | truncate: 160 }}</p>
           {% endif %}
           {% if post.tags.size > 0 %}
             <div class="flex flex-wrap gap-2">
@@ -41,6 +41,6 @@ description: "Thoughts on engineering, architecture, distributed systems, and bu
       {% endfor %}
     </div>
   {% else %}
-    <p class="text-sm text-storm">Posts coming soon.</p>
+    <p class="body-text">Posts coming soon.</p>
   {% endif %}
 </div>

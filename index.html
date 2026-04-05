@@ -10,15 +10,15 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
 
 <!-- Social links + bio -->
 <div class="flex flex-wrap gap-4 mb-8">
-  <a href="mailto:{{ site.email }}" class="inline-flex items-center gap-2 text-sm text-accent-600 no-underline hover:text-accent-800 transition-colors">
+  <a href="mailto:{{ site.email }}" class="icon-link gap-2">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
     {{ site.email }}
   </a>
-  <a href="https://github.com/{{ site.github_username }}" class="inline-flex items-center gap-2 text-sm text-accent-600 no-underline hover:text-accent-800 transition-colors" target="_blank" rel="noopener">
+  <a href="https://github.com/{{ site.github_username }}" class="icon-link gap-2" target="_blank" rel="noopener">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
     GitHub
   </a>
-  <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="inline-flex items-center gap-2 text-sm text-accent-600 no-underline hover:text-accent-800 transition-colors" target="_blank" rel="noopener">
+  <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="icon-link gap-2" target="_blank" rel="noopener">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
     LinkedIn
   </a>
@@ -35,18 +35,18 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
 {% assign real_posts = site.posts | where_exp: "post", "post.tags.size > 0" %}
 {% if real_posts.size > 0 %}
 <section class="mb-16" id="writing">
-  <h2 class="font-display text-3xl font-medium tracking-tight mb-8 pb-4 border-b border-mist">Latest Writing</h2>
+  <h2 class="section-heading">Latest Writing</h2>
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
     {% for post in real_posts limit:3 %}
     <article class="writing-card">
-      <h3 class="font-display text-xl font-medium">
-        <a href="{{ post.url | relative_url }}" class="text-obsidian no-underline hover:text-accent-600 transition-colors">{{ post.title }}</a>
+      <h3 class="card-title">
+        <a href="{{ post.url | relative_url }}" class="card-title-link" aria-label="Read {{ post.title }}">{{ post.title }}</a>
       </h3>
-      <span class="text-xs text-storm tracking-wide">{{ post.date | date: "%B %-d, %Y" }}</span>
+      <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
       {% if post.description %}
-        <p class="text-sm text-storm leading-relaxed flex-1">{{ post.description }}</p>
+        <p class="body-text flex-1">{{ post.description }}</p>
       {% elsif post.excerpt %}
-        <p class="text-sm text-storm leading-relaxed flex-1">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+        <p class="body-text flex-1">{{ post.excerpt | strip_html | truncate: 160 }}</p>
       {% endif %}
       {% if post.tags.size > 0 %}
         <div class="flex flex-wrap gap-2">
@@ -73,7 +73,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
 
 <!-- Experience -->
 <section class="mb-16" id="experience">
-  <h2 class="font-display text-3xl font-medium tracking-tight mb-8 pb-4 border-b border-mist">Experience</h2>
+  <h2 class="section-heading">Experience</h2>
 
   <div class="flex flex-col gap-12">
 
@@ -86,7 +86,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
       <div class="timeline-border" role="list">
 
         <div class="relative pl-4 pb-3" role="listitem">
-          <div class="absolute left-0 top-[6px] w-2 h-2 rounded-full bg-accent-400 -translate-x-[5px]" aria-hidden="true"></div>
+          <div class="timeline-dot" aria-hidden="true"></div>
           <button type="button" class="role-toggle flex items-center justify-between w-full text-left gap-4 group bg-transparent border-0"
                   aria-expanded="false" aria-controls="role-amex-staff"
                   aria-label="Staff Engineer at American Express">
@@ -98,16 +98,16 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
           </button>
           <div id="role-amex-staff" role="region" aria-label="Staff Engineer role details" class="role-details hidden mt-3">
             <ul class="flex flex-col gap-2 list-none p-0">
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Lead architectural design for a core payment processing platform serving 30M+ customers globally.</li>
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Define technical strategy across three product groups, partnering with VPs of Product and Data.</li>
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Mentor a cohort of senior and principal engineers; introduced engineering-wide RFC process adopted by 12 teams.</li>
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Drove migration of legacy batch-processing pipeline to event-driven architecture, reducing settlement latency by 70%.</li>
+              <li class="bullet-item">Lead architectural design for a core payment processing platform serving 30M+ customers globally.</li>
+              <li class="bullet-item">Define technical strategy across three product groups, partnering with VPs of Product and Data.</li>
+              <li class="bullet-item">Mentor a cohort of senior and principal engineers; introduced engineering-wide RFC process adopted by 12 teams.</li>
+              <li class="bullet-item">Drove migration of legacy batch-processing pipeline to event-driven architecture, reducing settlement latency by 70%.</li>
             </ul>
           </div>
         </div>
 
         <div class="relative pl-4 pb-3" role="listitem">
-          <div class="absolute left-0 top-[6px] w-2 h-2 rounded-full bg-accent-400 -translate-x-[5px]" aria-hidden="true"></div>
+          <div class="timeline-dot" aria-hidden="true"></div>
           <div class="flex items-center justify-between gap-4">
             <span class="text-sm font-medium text-accent-600">Senior Android Engineer</span>
             <span class="text-xs text-ink tracking-wide whitespace-nowrap">2021 — 2022</span>
@@ -115,7 +115,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
         </div>
 
         <div class="relative pl-4 pb-3" role="listitem">
-          <div class="absolute left-0 top-[6px] w-2 h-2 rounded-full bg-accent-400 -translate-x-[5px]" aria-hidden="true"></div>
+          <div class="timeline-dot" aria-hidden="true"></div>
           <div class="flex items-center justify-between gap-4">
             <span class="text-sm font-medium text-accent-600">Solutions Architect</span>
             <span class="text-xs text-ink tracking-wide whitespace-nowrap">2019 — 2022</span>
@@ -123,7 +123,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
         </div>
 
         <div class="relative pl-4 pb-1" role="listitem">
-          <div class="absolute left-0 top-[6px] w-2 h-2 rounded-full bg-accent-400 -translate-x-[5px]" aria-hidden="true"></div>
+          <div class="timeline-dot" aria-hidden="true"></div>
           <div class="flex items-center justify-between gap-4">
             <span class="text-sm font-medium text-accent-600">Senior Engineer</span>
             <span class="text-xs text-ink tracking-wide whitespace-nowrap">2018 — 2022</span>
@@ -132,7 +132,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
 
       </div>
       <div class="mt-6">
-        <p class="text-sm text-storm leading-relaxed">
+        <p class="body-text">
           As Staff Engineer within American Express's Enterprise Payments division — a business unit responsible for processing over $14Bn in card transactions annually — I own the technical direction for a portfolio of platform services spanning payment authorisation, fraud decisioning, and merchant settlement. The role sits at the intersection of architecture and leadership: partnering with VPs of Product and Data to translate commercial priorities into durable engineering investment, running a distributed cohort of senior and principal engineers across four time zones, and stewarding a platform that must remain highly available, globally consistent, and continuously PCI-DSS compliant. Beyond day-to-day delivery, I introduced the engineering-wide RFC process now adopted across 12 teams, and led the migration from a legacy batch-processing pipeline to an event-driven architecture that reduced settlement latency by 70%.
         </p>
       </div>
@@ -145,7 +145,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
       </div>
       <div class="timeline-border" role="list">
         <div class="relative pl-4 pb-3" role="listitem">
-          <div class="absolute left-0 top-[6px] w-2 h-2 rounded-full bg-accent-400 -translate-x-[5px]" aria-hidden="true"></div>
+          <div class="timeline-dot" aria-hidden="true"></div>
           <button type="button" class="role-toggle flex items-center justify-between w-full text-left gap-4 group bg-transparent border-0"
                   aria-expanded="false" aria-controls="role-fintec-lead"
                   aria-label="Lead Engineer at Placeholder Financial Tech Co.">
@@ -157,13 +157,13 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
           </button>
           <div id="role-fintec-lead" role="region" aria-label="Lead Engineer role details" class="role-details hidden mt-3">
             <ul class="flex flex-col gap-2 list-none p-0">
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Led decomposition of a 1.2M-line monolith into 18 independently deployable services over 18 months.</li>
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Grew the platform team from 3 to 12 engineers; established hiring bar and onboarding programme.</li>
+              <li class="bullet-item">Led decomposition of a 1.2M-line monolith into 18 independently deployable services over 18 months.</li>
+              <li class="bullet-item">Grew the platform team from 3 to 12 engineers; established hiring bar and onboarding programme.</li>
             </ul>
           </div>
         </div>
         <div class="relative pl-4 pb-1" role="listitem">
-          <div class="absolute left-0 top-[6px] w-2 h-2 rounded-full bg-accent-400 -translate-x-[5px]" aria-hidden="true"></div>
+          <div class="timeline-dot" aria-hidden="true"></div>
           <button type="button" class="role-toggle flex items-center justify-between w-full text-left gap-4 group bg-transparent border-0"
                   aria-expanded="false" aria-controls="role-fintec-senior"
                   aria-label="Senior Software Engineer at Placeholder Financial Tech Co.">
@@ -175,13 +175,13 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
           </button>
           <div id="role-fintec-senior" role="region" aria-label="Senior Software Engineer role details" class="role-details hidden mt-3">
             <ul class="flex flex-col gap-2 list-none p-0">
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Built and scaled a real-time data pipeline processing 50M events per day with sub-100ms P99 latency.</li>
+              <li class="bullet-item">Built and scaled a real-time data pipeline processing 50M events per day with sub-100ms P99 latency.</li>
             </ul>
           </div>
         </div>
       </div>
       <div class="mt-6">
-        <p class="text-sm text-storm leading-relaxed">
+        <p class="body-text">
           As Lead Engineer I was brought in to modernise a platform that had reached the limits of its monolithic architecture. I led the full decomposition of a 1.2M-line codebase into 18 independently deployable services over 18 months — a programme that required close collaboration with product, infrastructure, and QA disciplines as well as building the engineering team from 3 to 12 people. The work established the hiring bar, onboarding programme, and engineering culture that the company continues to operate on today.
         </p>
       </div>
@@ -194,7 +194,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
       </div>
       <div class="timeline-border" role="list">
         <div class="relative pl-4 pb-1" role="listitem">
-          <div class="absolute left-0 top-[6px] w-2 h-2 rounded-full bg-accent-400 -translate-x-[5px]" aria-hidden="true"></div>
+          <div class="timeline-dot" aria-hidden="true"></div>
           <button type="button" class="role-toggle flex items-center justify-between w-full text-left gap-4 group bg-transparent border-0"
                   aria-expanded="false" aria-controls="role-studio-eng"
                   aria-label="Software Engineer at Placeholder Software Studio">
@@ -206,15 +206,15 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
           </button>
           <div id="role-studio-eng" role="region" aria-label="Software Engineer role details" class="role-details hidden mt-3">
             <ul class="flex flex-col gap-2 list-none p-0">
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Developed core banking APIs consumed by iOS, Android, and web clients across five markets.</li>
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Introduced consumer-driven contract testing; reduced integration failures in CI by 60%.</li>
-              <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Contributed to open-source Kafka consumer library used by 200+ downstream services.</li>
+              <li class="bullet-item">Developed core banking APIs consumed by iOS, Android, and web clients across five markets.</li>
+              <li class="bullet-item">Introduced consumer-driven contract testing; reduced integration failures in CI by 60%.</li>
+              <li class="bullet-item">Contributed to open-source Kafka consumer library used by 200+ downstream services.</li>
             </ul>
           </div>
         </div>
       </div>
       <div class="mt-6">
-        <p class="text-sm text-storm leading-relaxed">
+        <p class="body-text">
           My first engineering role in financial services, where I developed and maintained the core banking APIs powering mobile and web products across five markets. Working within a small, high-output studio, I gained deep experience in consumer API design, integration testing discipline, and open-source contribution — including a Kafka consumer library that became a foundational dependency for 200+ downstream services. The habits of rigour and craftsmanship I built here shaped how I approach every engineering problem since.
         </p>
       </div>
@@ -244,7 +244,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
 
 <!-- Education -->
 <section class="mb-16" id="education">
-  <h2 class="font-display text-3xl font-medium tracking-tight mb-8 pb-4 border-b border-mist">Education</h2>
+  <h2 class="section-heading">Education</h2>
 
   <div class="flex flex-col gap-8">
     <div class="pl-6 border-l border-mist">
@@ -254,8 +254,8 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
       </div>
       <p class="text-sm text-accent-600 mb-4">BSc Computer Science — First Class Honours</p>
       <ul class="flex flex-col gap-2 list-none p-0">
-        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Dissertation: distributed consensus algorithms and their practical latency trade-offs.</li>
-        <li class="text-sm text-storm leading-relaxed pl-4 relative before:content-['–'] before:absolute before:left-0 before:text-storm">Teaching assistant for Algorithms &amp; Data Structures in final year.</li>
+        <li class="bullet-item">Dissertation: distributed consensus algorithms and their practical latency trade-offs.</li>
+        <li class="bullet-item">Teaching assistant for Algorithms &amp; Data Structures in final year.</li>
       </ul>
     </div>
   </div>
@@ -263,12 +263,12 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
 
 <!-- Skills -->
 <section class="mb-16" id="skills">
-  <h2 class="font-display text-3xl font-medium tracking-tight mb-8 pb-4 border-b border-mist">Skills</h2>
+  <h2 class="section-heading">Skills</h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
     <div>
-      <p class="text-xs uppercase tracking-widest text-storm mb-4">Architecture</p>
+      <p class="label-caps mb-4">Architecture</p>
       <div class="flex flex-wrap gap-2">
         <span class="tag-pill">Distributed systems</span>
         <span class="tag-pill">Microservices</span>
@@ -279,7 +279,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
     </div>
 
     <div>
-      <p class="text-xs uppercase tracking-widest text-storm mb-4">Languages</p>
+      <p class="label-caps mb-4">Languages</p>
       <div class="flex flex-wrap gap-2">
         <span class="tag-pill">Java</span>
         <span class="tag-pill">TypeScript</span>
@@ -290,7 +290,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
     </div>
 
     <div>
-      <p class="text-xs uppercase tracking-widest text-storm mb-4">Cloud &amp; infrastructure</p>
+      <p class="label-caps mb-4">Cloud &amp; infrastructure</p>
       <div class="flex flex-wrap gap-2">
         <span class="tag-pill">AWS</span>
         <span class="tag-pill">Kubernetes</span>
@@ -301,7 +301,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
     </div>
 
     <div>
-      <p class="text-xs uppercase tracking-widest text-storm mb-4">Leadership</p>
+      <p class="label-caps mb-4">Leadership</p>
       <div class="flex flex-wrap gap-2">
         <span class="tag-pill">Technical strategy</span>
         <span class="tag-pill">Engineering mentorship</span>

@@ -11,12 +11,12 @@ robots: "noindex, follow"
     <div class="flex flex-col gap-6">
       {% for post in page.posts %}
         <article class="writing-card">
-          <p class="text-xs text-storm tracking-wide mb-2">{{ post.date | date: "%B %-d, %Y" }}</p>
-          <h2 class="font-display text-xl font-medium mb-4">
-            <a href="{{ post.url | relative_url }}" class="text-obsidian no-underline hover:text-accent-600 transition-colors">{{ post.title }}</a>
+          <p class="post-date mb-2">{{ post.date | date: "%B %-d, %Y" }}</p>
+          <h2 class="card-title mb-4">
+            <a href="{{ post.url | relative_url }}" class="card-title-link">{{ post.title }}</a>
           </h2>
           {% if post.excerpt %}
-            <p class="text-sm text-storm leading-relaxed mb-4">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+            <p class="body-text mb-4">{{ post.excerpt | strip_html | truncate: 200 }}</p>
           {% endif %}
           <a href="{{ post.url | relative_url }}" class="read-more-link">
             Read more
@@ -29,6 +29,6 @@ robots: "noindex, follow"
       {% endfor %}
     </div>
   {% else %}
-    <p class="text-sm text-storm">No posts with this tag yet.</p>
+    <p class="body-text">No posts with this tag yet.</p>
   {% endif %}
 </div>

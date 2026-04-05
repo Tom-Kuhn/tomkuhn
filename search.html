@@ -123,13 +123,13 @@ robots: "noindex, follow"
       if (!item) return;
 
       var typeLabel = item.type === 'post' ? 'Blog post' : 'Portfolio';
-      var dateLine = item.date ? '<p class="text-xs text-storm tracking-wide mb-1">' + item.date + '</p>' : '';
+      var dateLine = item.date ? '<p class="post-date mb-1">' + item.date + '</p>' : '';
 
-      html += '<article class="p-6 border border-mist rounded-xl shadow-sm bg-white hover:border-storm hover:shadow-md transition-all duration-150">';
-      html += '<p class="text-xs uppercase tracking-widest text-storm mb-2">' + typeLabel + '</p>';
+      html += '<article class="writing-card">';
+      html += '<p class="label-caps mb-2">' + typeLabel + '</p>';
       html += dateLine;
-      html += '<h2 class="font-display text-xl font-medium mb-4"><a href="' + item.url + '" class="text-obsidian no-underline hover:text-accent-600 transition-colors">' + item.title + '</a></h2>';
-      html += '<p class="text-sm text-storm leading-relaxed">' + item.excerpt + '</p>';
+      html += '<h2 class="card-title mb-4"><a href="' + item.url + '" class="card-title-link">' + item.title + '</a></h2>';
+      html += '<p class="body-text">' + item.excerpt + '</p>';
       html += '</article>';
     });
     html += '</div>';
