@@ -14,7 +14,7 @@ layout: default
     {% if page.tags.size > 0 %}
       <div class="flex flex-wrap gap-2 mb-8">
         {% for tag in page.tags %}
-          <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}" class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-storm border border-mist no-underline hover:border-storm transition-colors">{{ tag }}</a>
+          <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}" class="tag-pill">{{ tag }}</a>
         {% endfor %}
       </div>
     {% endif %}

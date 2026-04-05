@@ -126,6 +126,15 @@ body {
 }
 
 /* ============================================================
+   Mobile header title — suppress UIKit's a:hover underline/colour
+   ============================================================ */
+header[aria-label="Mobile navigation"] > a,
+header[aria-label="Mobile navigation"] > a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ============================================================
    Focus-visible styles
    ============================================================ */
 a:focus-visible,
@@ -258,4 +267,76 @@ div.highlight pre {
 #page-header.is-pinned {
   border-bottom-color: #E2E4EA;
   box-shadow: 0 1px 8px rgba(28,29,33,0.06);
+}
+
+/* ============================================================
+   Writing card — article card used on /writing/ and homepage
+   ============================================================ */
+.writing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border: 0.5px solid #E2E4EA;
+  border-radius: 0.75rem;
+  background: #fff;
+  transition: border-color 150ms;
+}
+
+.writing-card:hover {
+  border-color: #5B6070;
+}
+
+/* ============================================================
+   Tag pill — used for post tags and skill chips
+   ============================================================ */
+.tag-pill {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #F5F6F8;
+  color: #2E3039;
+  border: 0.5px solid #E2E4EA;
+  text-decoration: none;
+  transition: border-color 150ms, background-color 150ms, color 150ms;
+}
+
+.tag-pill:hover {
+  border-color: #5B6070;
+  background: #E2E4EA;
+  color: #1C1D21;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Read-more link — arrow CTA used on writing cards
+   ============================================================ */
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4D7287;
+  text-decoration: none;
+  transition: color 150ms, gap 150ms;
+}
+
+.read-more-link:hover {
+  color: #2C4F61;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Footer disclaimer
+   ============================================================ */
+.footer-disclaimer {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #5B6070;
+  font-style: italic;
+  max-width: 900px;
 }

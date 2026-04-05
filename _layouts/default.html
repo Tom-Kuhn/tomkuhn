@@ -44,7 +44,7 @@
   <div id="main-wrap" class="md:ml-[280px] min-h-screen flex flex-col transition-all duration-200">
 
     <!-- Mobile header -->
-    <header class="md:hidden flex items-center gap-4 px-6 py-4 bg-obsidian/75 backdrop-blur-md sticky top-0 z-40" aria-label="Mobile navigation">
+    <header class="md:hidden flex items-center gap-4 px-6 py-4 bg-obsidian sticky top-0 z-40" aria-label="Mobile navigation">
       <button
         uk-toggle="target: #mobile-nav"
         type="button"
@@ -52,7 +52,7 @@
         aria-label="Open navigation">
         <span uk-icon="icon: menu; ratio: 1.2" aria-hidden="true"></span>
       </button>
-      <a href="{{ "/" | relative_url }}" class="font-display text-white text-xl font-medium no-underline" aria-label="{{ site.title }} home">Tom Kuhn</a>
+      <a href="{{ "/" | relative_url }}" class="font-display text-white text-xl font-medium no-underline hover:opacity-80 transition-opacity" aria-label="{{ site.title }} home">Tom Kuhn</a>
     </header>
 
     <!-- Scroll progress -->
@@ -89,6 +89,7 @@
           <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="text-sm text-storm hover:text-obsidian no-underline transition-colors" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
+      <p class="footer-disclaimer">The views expressed on this site are my own personal opinions and do not necessarily reflect those of my employer.</p>
       <a href="{{ "/sitemap.xml" | relative_url }}" class="sr-only">Sitemap</a>
     </footer>
 

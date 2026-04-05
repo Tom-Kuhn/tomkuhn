@@ -11,16 +11,16 @@ description: "Selected work by Tom Kuhn — Staff Engineer and architect. Projec
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+    <div class="writing-card">
       <h2 class="font-display text-xl font-medium text-obsidian">Payment platform migration</h2>
       <span class="text-xs uppercase tracking-widest text-storm">Case study</span>
       <p class="text-sm text-storm leading-relaxed flex-1">
         An architectural case study on decomposing a legacy batch-processing settlement system into an event-driven microservices platform — covering the trade-offs, the failures, and what I'd do differently.
       </p>
       <div class="flex flex-wrap gap-2">
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Kafka</span>
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Java</span>
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">AWS</span>
+        <span class="tag-pill">Kafka</span>
+        <span class="tag-pill">Java</span>
+        <span class="tag-pill">AWS</span>
       </div>
       <div>
         <a href="#" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian hover:!bg-obsidian hover:!text-white transition-colors duration-150 inline-flex items-center gap-2" target="_blank" rel="noopener">
@@ -30,17 +30,17 @@ description: "Selected work by Tom Kuhn — Staff Engineer and architect. Projec
       </div>
     </div>
 
-    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+    <div class="writing-card">
       <h2 class="font-display text-xl font-medium text-obsidian">Event-driven microservices template</h2>
       <span class="text-xs uppercase tracking-widest text-storm">Open source</span>
       <p class="text-sm text-storm leading-relaxed flex-1">
         A production-ready project template for Java microservices with Kafka, Outbox Pattern, and Testcontainers-based integration testing. Used as the starting point for five internal teams.
       </p>
       <div class="flex flex-wrap gap-2">
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Java</span>
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Spring Boot</span>
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Kafka</span>
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Testcontainers</span>
+        <span class="tag-pill">Java</span>
+        <span class="tag-pill">Spring Boot</span>
+        <span class="tag-pill">Kafka</span>
+        <span class="tag-pill">Testcontainers</span>
       </div>
       <div>
         <a href="https://github.com/{{ site.github_username }}" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian hover:!bg-obsidian hover:!text-white transition-colors duration-150 inline-flex items-center gap-2" target="_blank" rel="noopener">
@@ -50,15 +50,15 @@ description: "Selected work by Tom Kuhn — Staff Engineer and architect. Projec
       </div>
     </div>
 
-    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+    <div class="writing-card">
       <h2 class="font-display text-xl font-medium text-obsidian">Scaling engineering teams beyond the team</h2>
       <span class="text-xs uppercase tracking-widest text-storm py-1">Conference talk</span>
       <p class="text-sm text-storm leading-relaxed flex-1">
         A talk given at Placeholder Conference 2025 on how staff engineers multiply their impact by investing in process, documentation, and the engineers around them rather than personal output.
       </p>
       <div class="flex flex-wrap gap-2">
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Leadership</span>
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Staff engineering</span>
+        <span class="tag-pill">Leadership</span>
+        <span class="tag-pill">Staff engineering</span>
       </div>
       <div>
         <a href="#" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian hover:!bg-obsidian hover:!text-white transition-colors duration-150 inline-flex items-center gap-2" target="_blank" rel="noopener">
@@ -68,15 +68,15 @@ description: "Selected work by Tom Kuhn — Staff Engineer and architect. Projec
       </div>
     </div>
 
-    <div class="flex flex-col gap-4 p-8 border border-mist rounded-xl bg-white shadow-sm hover:border-storm hover:shadow-md transition-all duration-150">
+    <div class="writing-card">
       <h2 class="font-display text-xl font-medium text-obsidian">The practical guide to the Outbox Pattern</h2>
       <span class="text-xs uppercase tracking-widest text-storm ">Technical writing</span>
       <p class="text-sm text-storm leading-relaxed flex-1">
         A deep-dive article on implementing the Transactional Outbox Pattern in production, including failure modes, monitoring, and a comparison of three common delivery guarantees.
       </p>
       <div class="flex flex-wrap gap-2">
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Distributed systems</span>
-        <span class="inline-block px-4 py-1 rounded-full text-xs font-medium bg-cloud text-ink border border-mist hover:border-storm hover:bg-mist hover:text-obsidian transition-colors duration-150">Patterns</span>
+        <span class="tag-pill">Distributed systems</span>
+        <span class="tag-pill">Patterns</span>
       </div>
       <div>
         <a href="#" class="uk-button uk-button-default !rounded-lg !text-sm !font-sans !text-obsidian !border-obsidian hover:!bg-obsidian hover:!text-white transition-colors duration-150 inline-flex items-center gap-2" target="_blank" rel="noopener">
