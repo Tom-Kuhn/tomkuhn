@@ -5,9 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var COLLAPSED_KEY = 'tk-sidebar-collapsed';
 
   if (sidebarToggle) {
+    // Initialise aria-label to match restored state
+    if (document.body.classList.contains('sidebar-collapsed')) {
+      sidebarToggle.setAttribute('aria-label', 'Expand sidebar');
+    }
+
     sidebarToggle.addEventListener('click', function () {
       var isCollapsed = document.body.classList.toggle('sidebar-collapsed');
       localStorage.setItem(COLLAPSED_KEY, isCollapsed);
+      sidebarToggle.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
     });
   }
 

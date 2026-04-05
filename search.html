@@ -19,12 +19,12 @@ robots: "noindex, follow"
     autocomplete="off"
     aria-label="Search site content">
 
-  <div id="search-results">
+  <div id="search-results" aria-live="polite" aria-atomic="false">
     <p class="text-sm text-storm"></p>
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script>
 <script>
 (function () {
   var searchData = [
@@ -117,7 +117,8 @@ robots: "noindex, follow"
       return;
     }
 
-    var html = '<div class="flex flex-col gap-6">';
+    var html = '<p class="sr-only">' + results.length + ' result' + (results.length !== 1 ? 's' : '') + ' found</p>';
+    html += '<div class="flex flex-col gap-6">';
     results.forEach(function (result) {
       var item = dataMap[result.ref];
       if (!item) return;

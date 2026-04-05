@@ -46,6 +46,10 @@ jekyll-archives:
   permalinks:
     tag: '/tag/:name/'
 
+jekyll-sitemap:
+  exclude_glob:
+    - tag/**
+
 exclude:
   - CLAUDE.md
   - BRAND_STYLE_GUIDE.md

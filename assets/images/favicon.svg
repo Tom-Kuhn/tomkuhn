@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500');
+    </style>
+  </defs>
+  <!-- Dark circle background: Obsidian #1C1D21 -->
+  <circle cx="128" cy="128" r="128" fill="#1C1D21"/>
+  <!-- TK monogram: white, Playfair Display 500, carefully positioned -->
+  <text
+    x="128"
+    y="172"
+    text-anchor="middle"
+    dominant-baseline="auto"
+    font-family="Playfair Display, FreeSerif, Georgia, serif"
+    font-size="106"
+    font-weight="500"
+    fill="#FFFFFF"
+    letter-spacing="-1">TK</text>
+</svg>

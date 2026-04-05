@@ -16,6 +16,7 @@ body {
    ============================================================ */
 #desktop-sidebar .brand-mark {
   display: none;
+  font-family: "Playfair Display", Georgia, serif;
 }
 
 /* ============================================================
@@ -107,7 +108,7 @@ body {
 .uk-input:focus,
 .uk-textarea:focus {
   border-color: #4D7287;
-  box-shadow: 0 0 0 3px rgba(77, 114, 135, 0.15);
+  box-shadow: 0 0 0 3px rgba(77, 114, 135, 0.45);
   outline: none;
 }
 
@@ -145,25 +146,16 @@ button:focus-visible {
 }
 
 /* ============================================================
-   Rouge syntax highlighting
-   Nine visually distinct, slightly desaturated hues on #F5F6F8.
+   Rouge syntax highlighting — palette-constrained
    ─────────────────────────────────────────────────────────────
-   green  #3D9147  comments, HTML attributes
-   blue   #2B6CC7  keywords, HTML tags
-   amber  #B8720E  strings
-   purple #7B3DBF  numbers, decorators
-   teal   #1B8585  functions & methods
-   rose   #B5234F  classes & types
-   sky    #1E7AB0  built-ins
-   red    #BF2E2E  constants, errors
-   gray   #6B7280  operators, punctuation
+   These colours don't need to adhere to the brand guidelines
    ============================================================ */
 figure.highlight,
 div.highlight {
   margin: 1.5rem 0;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #E2E4EA;
+  border: 0.5px solid #E2E4EA;
 }
 
 figure.highlight pre,
@@ -266,7 +258,6 @@ div.highlight pre {
 
 #page-header.is-pinned {
   border-bottom-color: #E2E4EA;
-  box-shadow: 0 1px 8px rgba(28,29,33,0.06);
 }
 
 /* ============================================================
@@ -331,6 +322,21 @@ div.highlight pre {
 }
 
 /* ============================================================
+   Footer link — nav and contact links in the site footer
+   ============================================================ */
+.footer-link {
+  font-size: 0.875rem;
+  color: #4D7287;
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.footer-link:hover {
+  color: #2C4F61;
+  text-decoration: none;
+}
+
+/* ============================================================
    Footer disclaimer
    ============================================================ */
 .footer-disclaimer {
@@ -340,6 +346,7 @@ div.highlight pre {
   font-style: italic;
   max-width: 900px;
   margin-bottom: 0;
+  text-align: center;
 }
 
 /* ============================================================
@@ -372,7 +379,7 @@ div.highlight pre {
 .body-text {
   font-size: 0.875rem;
   color: #5B6070;
-  line-height: 1.625;
+  line-height: 1.7;
 }
 
 /* ============================================================
@@ -434,7 +441,7 @@ div.highlight pre {
 .bullet-item {
   font-size: 0.875rem;
   color: #5B6070;
-  line-height: 1.625;
+  line-height: 1.7;
   padding-left: 1rem;
   position: relative;
 }
@@ -466,6 +473,6 @@ div.highlight pre {
 .label-caps {
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   color: #5B6070;
 }

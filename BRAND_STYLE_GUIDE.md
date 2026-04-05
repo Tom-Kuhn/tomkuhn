@@ -136,7 +136,7 @@
   justify-content: center;
   font-size: 18px;
   font-weight: 500;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   letter-spacing: 0.02em;
   flex-shrink: 0;
 }

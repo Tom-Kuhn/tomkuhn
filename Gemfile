@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-# Jekyll 4 is required for Ruby 4.0 compatibility.
+# Jekyll 4 is required for Ruby 3.2+ compatibility.
 # The legacy github-pages gem pins Liquid to 4.0.3 which calls String#tainted?,
 # a method removed in Ruby 3.2. Jekyll 4 pulls in Liquid 4.0.4+ which is patched.
 # GitHub Pages deployment is handled via the Actions workflow in .github/workflows/.
@@ -19,12 +19,7 @@ group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
   gem "jekyll-sitemap"
   gem "jekyll-seo-tag"
-  gem "jekyll-assets"
-  gem "jekyll-redirect-from"
-  gem "jekyll-tagging"
   gem "jekyll-archives"
-  gem "jekyll-mentions"
-  gem "jekyll-gist"
 end
 
 platforms :windows, :jruby do
