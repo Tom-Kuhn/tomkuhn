@@ -1,39 +1,38 @@
-<a href="{{ "/" | relative_url }}" class="flex items-center mb-8 shrink-0 no-underline hover:no-underline hover:opacity-80 transition-opacity" aria-label="{{ site.title }} home">
-  <span class="brand-mark w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-sm font-medium shrink-0" aria-hidden="true">TK</span>
-  <div class="sidebar-text flex flex-col overflow-hidden transition-opacity duration-150 whitespace-nowrap">
-    <span class="text-white text-5xl text-medium leading-tight tracking-tight  font-display">{{ site.title }}</span>
+<a href="{{ "/" | relative_url }}" class="sidebar-brand" aria-label="{{ site.title }} home">
+  <span class="brand-mark" aria-hidden="true">TK</span>
+  <div class="sidebar-text">
+    <span class="sidebar-title">{{ site.title }}</span>
   </div>
 </a>
 
-<nav class="flex flex-col gap-2 flex-1" aria-label="Primary">
-  <a href="{{ "/" | relative_url }}" aria-label="Profile" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-    <span uk-icon="icon: user; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>
+<nav class="sidebar-nav" aria-label="Primary">
+  <a href="{{ "/" | relative_url }}" aria-label="Profile" {% if page.url == "/" %}aria-current="page"{% endif %} class="sidebar-nav-link {% if page.url == "/" %}active{% endif %}">
+    <span uk-icon="icon: user; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>
     <span class="nav-label" aria-hidden="true">Profile</span>
   </a>
-  <a href="{{ "/writing/" | relative_url }}" aria-label="Writing" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/writing" or page.layout == "post" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-    <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>
+  <a href="{{ "/writing/" | relative_url }}" aria-label="Writing" {% if page.url contains "/writing" or page.layout == "post" %}aria-current="page"{% endif %} class="sidebar-nav-link {% if page.url contains "/writing" or page.layout == "post" %}active{% endif %}">
+    <span uk-icon="icon: file-text; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>
     <span class="nav-label" aria-hidden="true">Writing</span>
   </a>
-  <a href="{{ "/work/" | relative_url }}" aria-label="Work" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/work" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-    <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>
+  <a href="{{ "/work/" | relative_url }}" aria-label="Work" {% if page.url contains "/work" %}aria-current="page"{% endif %} class="sidebar-nav-link {% if page.url contains "/work" %}active{% endif %}">
+    <span uk-icon="icon: grid; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>
     <span class="nav-label" aria-hidden="true">Work</span>
   </a>
-  <a href="{{ "/contact/" | relative_url }}" aria-label="Contact" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-    <span uk-icon="icon: mail; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>
+  <a href="{{ "/contact/" | relative_url }}" aria-label="Contact" {% if page.url contains "/contact" %}aria-current="page"{% endif %} class="sidebar-nav-link {% if page.url contains "/contact" %}active{% endif %}">
+    <span uk-icon="icon: mail; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>
     <span class="nav-label" aria-hidden="true">Contact</span>
   </a>
-  <a href="{{ "/search/" | relative_url }}" aria-label="Search" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display whitespace-nowrap overflow-hidden no-underline transition-colors duration-150 {% if page.url contains "/search" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-    <span uk-icon="icon: search; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>
+  <a href="{{ "/search/" | relative_url }}" aria-label="Search" {% if page.url contains "/search" %}aria-current="page"{% endif %} class="sidebar-nav-link {% if page.url contains "/search" %}active{% endif %}">
+    <span uk-icon="icon: search; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>
     <span class="nav-label" aria-hidden="true">Search</span>
   </a>
 </nav>
 
 <button
   id="sidebar-toggle"
-  class="mt-auto self-start flex items-center justify-center bg-transparent border border-white/10 rounded-lg text-mist hover:text-white hover:border-white/30 transition-colors w-8 h-8 cursor-pointer shrink-0"
   aria-label="Collapse sidebar"
   title="Collapse sidebar">
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="sidebar-toggle-icon transition-transform duration-200">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="sidebar-toggle-icon">
     <polyline points="15 18 9 12 15 6"/>
   </svg>
 </button>

@@ -1,19 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
 
+  // Enable sidebar/main-wrap transitions only after initial render to prevent
+  // animation flash on page load. Use requestAnimationFrame to defer one frame.
+  requestAnimationFrame(function () {
+    document.body.classList.add('sidebar-ready');
+  });
+
   // ── Sidebar: desktop collapse ──────────────────────────────────────────────
   var sidebarToggle = document.getElementById('sidebar-toggle');
   var COLLAPSED_KEY = 'tk-sidebar-collapsed';
 
   if (sidebarToggle) {
-    // Initialise aria-label to match restored state
+    // Initialise aria-label and title to match restored state
     if (document.body.classList.contains('sidebar-collapsed')) {
       sidebarToggle.setAttribute('aria-label', 'Expand sidebar');
+      sidebarToggle.setAttribute('title', 'Expand sidebar');
     }
 
     sidebarToggle.addEventListener('click', function () {
       var isCollapsed = document.body.classList.toggle('sidebar-collapsed');
+      var label = isCollapsed ? 'Expand sidebar' : 'Collapse sidebar';
       localStorage.setItem(COLLAPSED_KEY, isCollapsed);
-      sidebarToggle.setAttribute('aria-label', isCollapsed ? 'Expand sidebar' : 'Collapse sidebar');
+      sidebarToggle.setAttribute('aria-label', label);
+      sidebarToggle.setAttribute('title', label);
     });
   }
 

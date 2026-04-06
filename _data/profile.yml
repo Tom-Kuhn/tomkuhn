@@ -1,0 +1,143 @@
+# =============================================================================
+# Profile data — edit this file to update the index/profile page content.
+# The index.html template reads from site.data.profile to render each section.
+# =============================================================================
+
+bio: >-
+  I'm a Staff Engineer at American Express, where I lead architecture decisions
+  across payment processing systems serving millions of customers. I specialise
+  in distributed systems, platform engineering, and growing engineering teams
+  that build things meant to last. With over a decade in the industry, I've
+  helped organisations scale from startup to enterprise — and I care deeply
+  about clarity of thought, quality of craft, and the people doing the work.
+
+# ---------------------------------------------------------------------------
+# Experience
+# ---------------------------------------------------------------------------
+# Each company has a name, optional headline, a list of roles, and an optional
+# summary paragraph. Roles can be simple (title + dates) or expandable (with
+# bullets). Set `expandable: true` and provide an `id` and `bullets` list for
+# roles that should have a toggle.
+# ---------------------------------------------------------------------------
+experience:
+  - company: American Express
+    headline: "Staff Engineer &middot; 2022 &mdash; present"
+    roles:
+      - title: Staff Engineer
+        dates: "2022 — present"
+        expandable: true
+        id: role-amex-staff
+        bullets:
+          - "Lead architectural design for a core payment processing platform serving 30M+ customers globally."
+          - "Define technical strategy across three product groups, partnering with VPs of Product and Data."
+          - "Mentor a cohort of senior and principal engineers; introduced engineering-wide RFC process adopted by 12 teams."
+          - "Drove migration of legacy batch-processing pipeline to event-driven architecture, reducing settlement latency by 70%."
+      - title: Senior Android Engineer
+        dates: "2021 — 2022"
+      - title: Solutions Architect
+        dates: "2019 — 2022"
+      - title: Senior Engineer
+        dates: "2018 — 2022"
+    summary: >-
+      As Staff Engineer within American Express's Enterprise Payments division
+      — a business unit responsible for processing over $14Bn in card
+      transactions annually — I own the technical direction for a portfolio of
+      platform services spanning payment authorisation, fraud decisioning, and
+      merchant settlement. The role sits at the intersection of architecture and
+      leadership: partnering with VPs of Product and Data to translate
+      commercial priorities into durable engineering investment, running a
+      distributed cohort of senior and principal engineers across four time
+      zones, and stewarding a platform that must remain highly available,
+      globally consistent, and continuously PCI-DSS compliant. Beyond
+      day-to-day delivery, I introduced the engineering-wide RFC process now
+      adopted across 12 teams, and led the migration from a legacy
+      batch-processing pipeline to an event-driven architecture that reduced
+      settlement latency by 70%.
+
+  - company: Placeholder Financial Tech Co.
+    roles:
+      - title: Lead Engineer
+        dates: "2021 — 2022"
+        expandable: true
+        id: role-fintec-lead
+        bullets:
+          - "Led decomposition of a 1.2M-line monolith into 18 independently deployable services over 18 months."
+          - "Grew the platform team from 3 to 12 engineers; established hiring bar and onboarding programme."
+      - title: Senior Software Engineer
+        dates: "2019 — 2021"
+        expandable: true
+        id: role-fintec-senior
+        bullets:
+          - "Built and scaled a real-time data pipeline processing 50M events per day with sub-100ms P99 latency."
+    summary: >-
+      As Lead Engineer I was brought in to modernise a platform that had
+      reached the limits of its monolithic architecture. I led the full
+      decomposition of a 1.2M-line codebase into 18 independently deployable
+      services over 18 months — a programme that required close collaboration
+      with product, infrastructure, and QA disciplines as well as building the
+      engineering team from 3 to 12 people. The work established the hiring
+      bar, onboarding programme, and engineering culture that the company
+      continues to operate on today.
+
+  - company: Placeholder Software Studio
+    roles:
+      - title: Software Engineer
+        dates: "2016 — 2019"
+        expandable: true
+        id: role-studio-eng
+        bullets:
+          - "Developed core banking APIs consumed by iOS, Android, and web clients across five markets."
+          - "Introduced consumer-driven contract testing; reduced integration failures in CI by 60%."
+          - "Contributed to open-source Kafka consumer library used by 200+ downstream services."
+    summary: >-
+      My first engineering role in financial services, where I developed and
+      maintained the core banking APIs powering mobile and web products across
+      five markets. Working within a small, high-output studio, I gained deep
+      experience in consumer API design, integration testing discipline, and
+      open-source contribution — including a Kafka consumer library that became
+      a foundational dependency for 200+ downstream services. The habits of
+      rigour and craftsmanship I built here shaped how I approach every
+      engineering problem since.
+
+# ---------------------------------------------------------------------------
+# Education
+# ---------------------------------------------------------------------------
+education:
+  - institution: University of Placeholder
+    dates: "2012 — 2016"
+    degree: "BSc Computer Science — First Class Honours"
+    bullets:
+      - "Dissertation: distributed consensus algorithms and their practical latency trade-offs."
+      - "Teaching assistant for Algorithms & Data Structures in final year."
+
+# ---------------------------------------------------------------------------
+# Skills
+# ---------------------------------------------------------------------------
+skills:
+  - category: Architecture
+    items:
+      - Distributed systems
+      - Microservices
+      - Event-driven
+      - Platform engineering
+      - Domain-driven design
+  - category: Languages
+    items:
+      - Java
+      - TypeScript
+      - Python
+      - Go
+      - SQL
+  - category: "Cloud & infrastructure"
+    items:
+      - AWS
+      - Kubernetes
+      - Terraform
+      - Kafka
+      - Datadog
+  - category: Leadership
+    items:
+      - Technical strategy
+      - Engineering mentorship
+      - Hiring
+      - RFC facilitation

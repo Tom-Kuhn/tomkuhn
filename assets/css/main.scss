@@ -9,14 +9,213 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
+  color: #1C1D21;
+  background: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: #4D7287;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /* ============================================================
-   Sidebar brand mark: hidden when expanded, shown when collapsed
+   Screen-reader only — visually hidden but accessible
    ============================================================ */
-#desktop-sidebar .brand-mark {
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================================
+   Skip link — visually hidden until focused
+   ============================================================ */
+.skip-link {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
+  background: #FFFFFF;
+  color: #1C1D21;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 2px #4D7287;
+  outline: none;
+}
+
+/* ============================================================
+   Desktop sidebar
+   ============================================================ */
+#desktop-sidebar {
   display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: #1C1D21;
+  padding: 1.5rem;
+  z-index: 50;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  #desktop-sidebar { display: flex; }
+}
+
+/* ── Sidebar brand (home link at top) ── */
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-shrink: 0;
+  text-decoration: none;
+  transition: opacity 150ms;
+}
+
+.sidebar-brand:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+/* ── Brand mark: "TK" circle, hidden when expanded ── */
+.brand-mark {
+  display: none;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: #1C1D21;
+  color: #FFFFFF;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 500;
   font-family: "Playfair Display", Georgia, serif;
+  flex-shrink: 0;
+}
+
+/* ── Sidebar text block (title wrapper) ── */
+.sidebar-text {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: opacity 150ms;
+  white-space: nowrap;
+}
+
+.sidebar-title {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+/* ── Sidebar nav ── */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-decoration: none;
+  transition: color 150ms, background-color 150ms;
+  color: #E2E4EA;
+}
+
+.sidebar-nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+}
+
+.sidebar-nav-link.active {
+  color: #7A95A8;
+  background: rgba(122, 149, 168, 0.1);
+}
+
+.sidebar-nav-link.active:hover {
+  text-decoration: none;
+}
+
+/* ── Sidebar toggle button ── */
+#sidebar-toggle {
+  margin-top: auto;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  color: #E2E4EA;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 150ms, border-color 150ms;
+}
+
+#sidebar-toggle:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* ============================================================
+   Sidebar + main-wrap transitions — only active after JS marks
+   the page as ready (prevents animation on initial load / page nav)
+   ============================================================ */
+@media (min-width: 768px) {
+  body.sidebar-ready #desktop-sidebar {
+    transition: width 200ms, padding 200ms;
+  }
+
+  body.sidebar-ready #main-wrap {
+    transition: margin-left 200ms;
+  }
 }
 
 /* ============================================================
@@ -29,7 +228,7 @@ body {
     padding-right: 0;
   }
 
-  body.sidebar-collapsed #main-wrap { margin-left: 4rem; } /* collapsed = 64px; expanded = 280px via Tailwind */
+  body.sidebar-collapsed #main-wrap { margin-left: 4rem; }
 
   body.sidebar-collapsed #desktop-sidebar .brand-mark {
     display: flex;
@@ -46,8 +245,8 @@ body {
   }
 
   /* Centre every item when collapsed */
-  body.sidebar-collapsed #desktop-sidebar > a,
-  body.sidebar-collapsed #desktop-sidebar nav a {
+  body.sidebar-collapsed #desktop-sidebar .sidebar-brand,
+  body.sidebar-collapsed #desktop-sidebar .sidebar-nav-link {
     justify-content: center;
     padding-left: 0;
     padding-right: 0;
@@ -58,12 +257,158 @@ body {
     display: none;
   }
 
-  /* overrides self-start Tailwind class on the toggle button */
   body.sidebar-collapsed #desktop-sidebar #sidebar-toggle {
     align-self: center;
     margin-left: auto;
     margin-right: auto;
   }
+}
+
+/* ============================================================
+   Main content wrap
+   ============================================================ */
+#main-wrap {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  #main-wrap { margin-left: 280px; }
+}
+
+#main-content {
+  flex: 1;
+  padding: 0 1.5rem;
+  max-width: 900px;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  #main-content { padding: 0 2rem; }
+}
+
+/* ============================================================
+   Mobile header
+   ============================================================ */
+.mobile-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background-color: #1C1D21;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+@media (min-width: 768px) {
+  .mobile-header { display: none; }
+}
+
+.mobile-menu-btn {
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0.25rem;
+  flex-shrink: 0;
+  color: #E2E4EA;
+  transition: color 150ms;
+}
+
+.mobile-menu-btn:hover { color: #fff; }
+
+.mobile-site-title {
+  font-family: "Playfair Display", Georgia, serif;
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: opacity 150ms;
+}
+
+.mobile-site-title:hover {
+  opacity: 0.8;
+  text-decoration: none;
+  color: #fff;
+}
+
+/* ============================================================
+   Mobile navigation (UIKit offcanvas overrides)
+   ============================================================ */
+#mobile-nav .uk-offcanvas-bar {
+  background-color: #1C1D21 !important;
+  width: 15rem !important;
+  padding: 2rem !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvas-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.offcanvas-title {
+  text-decoration: none;
+  transition: opacity 150ms;
+}
+
+.offcanvas-title:hover {
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.offcanvas-title span {
+  color: #fff;
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.offcanvas-close {
+  position: static !important;
+  color: #E2E4EA !important;
+  transition: color 150ms;
+}
+
+.offcanvas-close:hover {
+  color: #fff !important;
+}
+
+.offcanvas-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ============================================================
+   Mobile nav link — offcanvas navigation anchor
+   ============================================================ */
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-family: "Playfair Display", Georgia, serif;
+  text-decoration: none;
+  transition: color 150ms, background-color 150ms;
+  color: #E2E4EA;
+}
+
+.mobile-nav-link:hover {
+  text-decoration: none;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-nav-link.active {
+  color: #7A95A8;
+  background: rgba(122, 149, 168, 0.1);
 }
 
 /* ============================================================
@@ -85,6 +430,126 @@ body {
   height: 0%;
   background: #4D7287;
   transition: height 0.05s linear;
+}
+
+/* ============================================================
+   Page header (sticky, layout-level)
+   ============================================================ */
+#page-header {
+  position: sticky;
+  top: 3.5rem;
+  z-index: 30;
+  padding: 1.5rem;
+  border-bottom: 0.5px solid transparent;
+  transition: border-color 200ms;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+@media (min-width: 768px) {
+  #page-header {
+    top: 0;
+    padding: 1.5rem 2rem;
+  }
+}
+
+#page-header.is-pinned {
+  border-bottom-color: #E2E4EA;
+}
+
+/* ============================================================
+   Page heading — used for page titles and archive/tag h1s
+   ============================================================ */
+.page-heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #1C1D21;
+}
+
+.page-subtitle {
+  font-size: 1rem;
+  color: #5B6070;
+  margin-top: 0.75rem;
+  line-height: 1.625;
+}
+
+/* ============================================================
+   Site footer
+   ============================================================ */
+.site-footer {
+  margin-top: 0;
+  padding: 2rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-footer { padding: 2rem; }
+}
+
+.footer-inner {
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .footer-inner {
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+  }
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.5rem;
+}
+
+.footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.footer-link {
+  font-size: 0.875rem;
+  color: #4D7287;
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.footer-link:hover {
+  color: #2C4F61;
+  text-decoration: none;
+}
+
+.footer-disclaimer {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #5B6070;
+  font-style: italic;
+  max-width: 900px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* ============================================================
+   Focus-visible styles
+   ============================================================ */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #4D7287;
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 /* ============================================================
@@ -119,30 +584,202 @@ body {
 }
 
 /* ============================================================
-   Sidebar title — suppress UIKit's a:hover underline
+   Submit button — contact form CTA
    ============================================================ */
-#desktop-sidebar > a,
-#desktop-sidebar > a:hover {
-  text-decoration: none;
-}
-
-/* ============================================================
-   Mobile header title — suppress UIKit's a:hover underline/colour
-   ============================================================ */
-header[aria-label="Mobile navigation"] > a,
-header[aria-label="Mobile navigation"] > a:hover {
-  text-decoration: none;
+.submit-btn {
+  background-color: #1C1D21 !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  font-size: 0.875rem !important;
+  font-weight: 500 !important;
+  border-radius: 0.5rem !important;
   color: #fff;
+  transition: opacity 150ms;
+}
+
+.submit-btn:hover {
+  opacity: 0.85;
 }
 
 /* ============================================================
-   Focus-visible styles
+   Common layout helpers
    ============================================================ */
-a:focus-visible,
-button:focus-visible {
-  outline: 2px solid #4D7287;
-  outline-offset: 2px;
-  border-radius: 4px;
+.tag-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.card-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================================
+   Writing card — article card used on /writing/ and homepage
+   ============================================================ */
+.writing-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  border: 0.5px solid #E2E4EA;
+  border-radius: 0.75rem;
+  background: #fff;
+  transition: border-color 150ms;
+}
+
+.writing-card:hover {
+  border-color: #5B6070;
+}
+
+/* ============================================================
+   Tag pill — used for post tags and skill chips
+   ============================================================ */
+.tag-pill {
+  display: inline-block;
+  padding: 0.25rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #F5F6F8;
+  color: #2E3039;
+  border: 0.5px solid #E2E4EA;
+  text-decoration: none;
+  transition: border-color 150ms, background-color 150ms, color 150ms;
+}
+
+.tag-pill:hover {
+  border-color: #5B6070;
+  background: #E2E4EA;
+  color: #1C1D21;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Read-more link — arrow CTA used on writing cards
+   ============================================================ */
+.read-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4D7287;
+  text-decoration: none;
+  transition: color 150ms, gap 150ms;
+}
+
+.read-more-link:hover {
+  color: #2C4F61;
+  gap: 0.75rem;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Section heading — major h2 separating profile page sections
+   ============================================================ */
+.section-heading {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 0.5px solid #E2E4EA;
+}
+
+/* ============================================================
+   Post date — publication date on cards and post headers
+   ============================================================ */
+.post-date {
+  font-size: 0.75rem;
+  color: #5B6070;
+  letter-spacing: 0.05em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Body text — small grey body copy used across the site
+   ============================================================ */
+.body-text {
+  font-size: 0.875rem;
+  color: #5B6070;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   Card title — heading inside writing / work / search cards
+   ============================================================ */
+.card-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   Card title link — anchor inside a .card-title
+   ============================================================ */
+.card-title-link {
+  color: #1C1D21;
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.card-title-link:hover {
+  color: #4D7287;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Icon link — inline link with a leading icon (social, CTAs)
+   ============================================================ */
+.icon-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #4D7287;
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+.icon-link:hover {
+  color: #2C4F61;
+  text-decoration: none;
+}
+
+/* ============================================================
+   Form label — label above contact form inputs
+   ============================================================ */
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1C1D21;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
 /* ============================================================
@@ -240,199 +877,11 @@ div.highlight pre {
 .timeline-border [role="listitem"]:not(:last-child)::after {
   content: '';
   position: absolute;
-  left: -1px;        /* aligned with dot centre (dot: left:0 - translate 5px + 4px half-width = -1px) */
-  top: 10px;         /* dot centre (top-offset 6px + half dot height 4px) */
-  bottom: -10px;     /* extends to next item's dot centre */
+  left: -1px;
+  top: 10px;
+  bottom: -10px;
   width: 1px;
-  background-color: #7A95A8; /* accent-400 — matches dot colour */
-}
-
-/* ============================================================
-   Page header (sticky, layout-level)
-   ============================================================ */
-#page-header {
-  background: rgba(255,255,255,0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-#page-header.is-pinned {
-  border-bottom-color: #E2E4EA;
-}
-
-/* ============================================================
-   Writing card — article card used on /writing/ and homepage
-   ============================================================ */
-.writing-card {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding: 2rem;
-  border: 0.5px solid #E2E4EA;
-  border-radius: 0.75rem;
-  background: #fff;
-  transition: border-color 150ms;
-}
-
-.writing-card:hover {
-  border-color: #5B6070;
-}
-
-/* ============================================================
-   Tag pill — used for post tags and skill chips
-   ============================================================ */
-.tag-pill {
-  display: inline-block;
-  padding: 0.25rem 1rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  background: #F5F6F8;
-  color: #2E3039;
-  border: 0.5px solid #E2E4EA;
-  text-decoration: none;
-  transition: border-color 150ms, background-color 150ms, color 150ms;
-}
-
-.tag-pill:hover {
-  border-color: #5B6070;
-  background: #E2E4EA;
-  color: #1C1D21;
-  text-decoration: none;
-}
-
-/* ============================================================
-   Read-more link — arrow CTA used on writing cards
-   ============================================================ */
-.read-more-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #4D7287;
-  text-decoration: none;
-  transition: color 150ms, gap 150ms;
-}
-
-.read-more-link:hover {
-  color: #2C4F61;
-  gap: 0.75rem;
-  text-decoration: none;
-}
-
-/* ============================================================
-   Footer link — nav and contact links in the site footer
-   ============================================================ */
-.footer-link {
-  font-size: 0.875rem;
-  color: #4D7287;
-  text-decoration: none;
-  transition: color 150ms;
-}
-
-.footer-link:hover {
-  color: #2C4F61;
-  text-decoration: none;
-}
-
-/* ============================================================
-   Footer disclaimer
-   ============================================================ */
-.footer-disclaimer {
-  margin-top: 1.25rem;
-  font-size: 0.75rem;
-  color: #5B6070;
-  font-style: italic;
-  max-width: 900px;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-/* ============================================================
-   Section heading — major h2 separating profile page sections
-   ============================================================ */
-.section-heading {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.875rem;
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  border-bottom: 0.5px solid #E2E4EA;
-}
-
-/* ============================================================
-   Post date — publication date on cards and post headers
-   ============================================================ */
-.post-date {
-  font-size: 0.75rem;
-  color: #5B6070;
-  letter-spacing: 0.05em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-/* ============================================================
-   Body text — small grey body copy used across the site
-   ============================================================ */
-.body-text {
-  font-size: 0.875rem;
-  color: #5B6070;
-  line-height: 1.7;
-}
-
-/* ============================================================
-   Card title — heading inside writing / work / search cards
-   ============================================================ */
-.card-title {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin-bottom: 0;
-}
-
-/* ============================================================
-   Card title link — anchor inside a .card-title
-   ============================================================ */
-.card-title-link {
-  color: #1C1D21;
-  text-decoration: none;
-  transition: color 150ms;
-}
-
-.card-title-link:hover {
-  color: #4D7287;
-  text-decoration: none;
-}
-
-/* ============================================================
-   Icon link — inline link with a leading icon (social, CTAs)
-   Gap is not set here — specify gap-2 or gap-4 per context.
-   ============================================================ */
-.icon-link {
-  display: inline-flex;
-  align-items: center;
-  font-size: 0.875rem;
-  color: #4D7287;
-  text-decoration: none;
-  transition: color 150ms;
-}
-
-.icon-link:hover {
-  color: #2C4F61;
-  text-decoration: none;
-}
-
-/* ============================================================
-   Form label — label above contact form inputs
-   ============================================================ */
-.form-label {
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #1C1D21;
-  display: block;
-  margin-bottom: 0.5rem;
+  background-color: #7A95A8;
 }
 
 /* ============================================================
@@ -447,7 +896,7 @@ div.highlight pre {
 }
 
 .bullet-item::before {
-  content: '–';
+  content: '\2013';
   position: absolute;
   left: 0;
   color: #5B6070;
@@ -475,4 +924,293 @@ div.highlight pre {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: #5B6070;
+}
+
+/* ============================================================
+   Role name — job title span on experience timeline rows
+   ============================================================ */
+.role-name {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #4D7287;
+  transition: color 150ms;
+}
+
+button:hover .role-name {
+  color: #2C4F61;
+}
+
+/* ============================================================
+   Role date — date-range span on experience timeline rows
+   ============================================================ */
+.role-date {
+  font-size: 0.75rem;
+  color: #5B6070;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Role details — collapsible panel (hidden by default, shown by JS)
+   ============================================================ */
+.role-details {
+  display: none;
+  margin-top: 0.75rem;
+}
+
+.role-details[aria-hidden="false"],
+.role-details:not(.hidden) {
+  display: block;
+}
+
+/* ============================================================
+   Role toggle — collapsible role row button
+   ============================================================ */
+.role-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  gap: 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ============================================================
+   Company name — employer heading on experience timeline
+   ============================================================ */
+.company-name {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #1C1D21;
+}
+
+/* ============================================================
+   Company headline — subtitle beneath company name
+   ============================================================ */
+.company-headline {
+  font-size: 0.75rem;
+  color: #5B6070;
+  font-weight: 500;
+  margin-top: 0.25rem;
+  letter-spacing: 0.025em;
+}
+
+/* ============================================================
+   Bullet list — achievement list in experience / education
+   ============================================================ */
+.bullet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ============================================================
+   Education entry
+   ============================================================ */
+.education-entry {
+  padding-left: 1.5rem;
+  border-left: 0.5px solid #E2E4EA;
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.education-institution {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #1C1D21;
+}
+
+.education-degree {
+  font-size: 0.875rem;
+  color: #4D7287;
+  margin-bottom: 1rem;
+}
+
+/* ============================================================
+   Skills grid
+   ============================================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .skills-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* ============================================================
+   Profile bio — introductory paragraph on index page
+   ============================================================ */
+.profile-bio {
+  font-size: 1rem;
+  color: #5B6070;
+  line-height: 1.625;
+  margin-bottom: 4rem;
+}
+
+/* ============================================================
+   Social links — row of icon links on index page
+   ============================================================ */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* ============================================================
+   Profile section — spacing for major sections on index page
+   ============================================================ */
+.profile-section {
+  margin-bottom: 4rem;
+}
+
+/* ============================================================
+   Experience block — company entry in experience section
+   ============================================================ */
+.experience-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* ============================================================
+   Card action button — external CTA on work / project cards
+   ============================================================ */
+.card-action-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  border-radius: 0.5rem !important;
+  font-size: 0.875rem !important;
+  font-family: 'Inter', -apple-system, sans-serif !important;
+  color: #1C1D21 !important;
+  border-color: #1C1D21 !important;
+  border-width: 0.5px !important;
+  transition: background-color 150ms, color 150ms;
+}
+
+.card-action-btn:hover {
+  background-color: #1C1D21 !important;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+.card-action-btn:focus-visible {
+  outline: 2px solid #4D7287 !important;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   Error page (404)
+   ============================================================ */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.error-code {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 6rem;
+  font-weight: 500;
+  color: #E2E4EA;
+  line-height: 1;
+  margin-bottom: 1.5rem;
+}
+
+.error-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #1C1D21;
+  margin-bottom: 0.75rem;
+}
+
+/* ============================================================
+   Contact page layout
+   ============================================================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .contact-grid { grid-template-columns: 1fr 1.4fr; }
+}
+
+.contact-info-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ============================================================
+   Icon sizing for UIKit icons — prevents layout shift
+   ============================================================ */
+.icon-sm {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.icon-md {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* ============================================================
+   Chevron icon — used in role toggles
+   ============================================================ */
+.chevron {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: #5B6070;
+  transition: transform 200ms;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+   Reduced motion — disable all transitions and animations
+   for users who have requested reduced motion at OS level
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

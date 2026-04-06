@@ -3,56 +3,56 @@
 <head>
   {% include head.html %}
 </head>
-<body class="font-sans antialiased text-obsidian bg-white">
-<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-white focus:text-obsidian focus:rounded focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-accent-600">Skip to main content</a>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 <script>try{if(localStorage.getItem('tk-sidebar-collapsed')==='true')document.body.classList.add('sidebar-collapsed');}catch(e){}</script>
 
   <!-- Desktop sidebar -->
-  <aside id="desktop-sidebar" class="hidden md:flex flex-col fixed left-0 top-0 bottom-0 w-[280px] bg-obsidian px-6 py-6 z-50 overflow-hidden transition-all duration-200" aria-label="Site navigation">
+  <aside id="desktop-sidebar" aria-label="Site navigation">
     {% include sidebar.html %}
   </aside>
 
   <!-- Mobile navigation (UIKit offcanvas) -->
   <div id="mobile-nav" uk-offcanvas="overlay: true; mode: slide">
-    <div class="uk-offcanvas-bar !bg-obsidian !w-60 !p-8 flex flex-col">
-      <div class="flex items-center justify-between mb-8">
-        <a href="{{ "/" | relative_url }}" class="no-underline hover:opacity-80 transition-opacity">
-          <span class="text-white text-lg font-medium font-display">{{ site.title }}</span>
+    <div class="uk-offcanvas-bar">
+      <div class="offcanvas-header">
+        <a href="{{ "/" | relative_url }}" class="offcanvas-title">
+          <span>{{ site.title }}</span>
         </a>
-        <button class="uk-offcanvas-close !static !text-mist hover:!text-white" type="button" uk-close aria-label="Close navigation"></button>
+        <button class="uk-offcanvas-close offcanvas-close" type="button" uk-close aria-label="Close navigation"></button>
       </div>
-      <nav class="flex flex-col gap-2" aria-label="Primary">
-        <a href="{{ "/" | relative_url }}" aria-label="Profile" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url == "/" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-          <span uk-icon="icon: user; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>Profile
+      <nav class="offcanvas-nav" aria-label="Primary">
+        <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url == "/" %}active{% endif %}">
+          <span uk-icon="icon: user; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Profile
         </a>
-        <a href="{{ "/writing/" | relative_url }}" aria-label="Writing" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/writing" or page.layout == "post" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-          <span uk-icon="icon: file-text; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>Writing
+        <a href="{{ "/writing/" | relative_url }}" {% if page.url contains "/writing" or page.layout == "post" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/writing" or page.layout == "post" %}active{% endif %}">
+          <span uk-icon="icon: file-text; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Writing
         </a>
-        <a href="{{ "/work/" | relative_url }}" aria-label="Work" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/work" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-          <span uk-icon="icon: grid; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>Work
+        <a href="{{ "/work/" | relative_url }}" {% if page.url contains "/work" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/work" %}active{% endif %}">
+          <span uk-icon="icon: grid; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Work
         </a>
-        <a href="{{ "/contact/" | relative_url }}" aria-label="Contact" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/contact" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-          <span uk-icon="icon: mail; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>Contact
+        <a href="{{ "/contact/" | relative_url }}" {% if page.url contains "/contact" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/contact" %}active{% endif %}">
+          <span uk-icon="icon: mail; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Contact
         </a>
-        <a href="{{ "/search/" | relative_url }}" aria-label="Search" class="flex items-center gap-4 px-4 py-2 rounded-lg text-base font-display no-underline transition-colors duration-150 {% if page.url contains "/search" %}text-accent-400 bg-accent-400/10{% else %}text-mist hover:text-white hover:bg-white/10{% endif %}">
-          <span uk-icon="icon: search; ratio: 0.85" class="shrink-0" aria-hidden="true"></span>Search
+        <a href="{{ "/search/" | relative_url }}" {% if page.url contains "/search" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/search" %}active{% endif %}">
+          <span uk-icon="icon: search; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Search
         </a>
       </nav>
     </div>
   </div>
 
-  <div id="main-wrap" class="md:ml-[280px] min-h-screen flex flex-col transition-all duration-200">
+  <div id="main-wrap">
 
     <!-- Mobile header -->
-    <header class="md:hidden flex items-center gap-4 px-6 py-4 bg-obsidian sticky top-0 z-40" aria-label="Mobile navigation">
+    <header class="mobile-header" aria-label="Mobile navigation">
       <button
         uk-toggle="target: #mobile-nav"
         type="button"
-        class="bg-transparent border-0 cursor-pointer p-1 shrink-0 text-mist hover:text-white transition-colors"
+        class="mobile-menu-btn"
         aria-label="Open navigation">
-        <span uk-icon="icon: menu; ratio: 1.2" aria-hidden="true"></span>
+        <span uk-icon="icon: menu; ratio: 1.2" class="icon-md" aria-hidden="true"></span>
       </button>
-      <a href="{{ "/" | relative_url }}" class="font-display text-white text-xl font-medium no-underline hover:opacity-80 transition-opacity" aria-label="{{ site.title }} home">Tom Kuhn</a>
+      <a href="{{ "/" | relative_url }}" class="mobile-site-title" aria-label="{{ site.title }} home">Tom Kuhn</a>
     </header>
 
     <!-- Scroll progress -->
@@ -63,27 +63,21 @@
     <!-- Page header: sticky, full-width, consistent across all pages -->
     {% if page.show_page_header or page.layout == "post" %}
     {% assign page_heading = page.heading | default: page.title %}
-    <div id="page-header" class="sticky top-14 md:top-0 z-30 px-6 md:px-8 py-6 border-b border-transparent transition-colors duration-200" aria-label="Page title">
-      <h1 class="font-display text-5xl font-medium leading-tight tracking-tight text-obsidian">{{ page_heading }}</h1>
+    <div id="page-header" aria-label="Page title">
+      <h1 class="page-heading">{{ page_heading }}</h1>
       {% if page.subtitle %}
-      <p class="text-base text-storm mt-3 leading-relaxed">{{ page.subtitle }}</p>
+      <p class="page-subtitle">{{ page.subtitle }}</p>
       {% endif %}
     </div>
     {% endif %}
 
-    <main class="flex-1 px-6 md:px-8 max-w-[900px] w-full" id="main-content">
+    <main id="main-content">
       {{ content }}
     </main>
 
-    <footer class="mt-auto px-6 md:px-8 py-8 border-t border-mist" role="contentinfo">
-      <div class="max-w-[900px] w-full flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
-        <nav class="flex flex-wrap gap-x-6 gap-y-2" aria-label="Footer navigation">
-          <a href="{{ "/" | relative_url }}" class="footer-link">Profile</a>
-          <a href="{{ "/writing/" | relative_url }}" class="footer-link">Writing</a>
-          <a href="{{ "/work/" | relative_url }}" class="footer-link">Work</a>
-          <a href="{{ "/contact/" | relative_url }}" class="footer-link">Contact</a>
-        </nav>
-        <div class="flex flex-wrap items-center gap-4">
+    <footer class="site-footer" role="contentinfo">
+      <div class="footer-inner">
+        <div class="footer-social">
           <a href="mailto:{{ site.email }}" class="footer-link">{{ site.email }}</a>
           <a href="https://github.com/{{ site.github_username }}" class="footer-link" target="_blank" rel="noopener">GitHub</a>
           <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>

@@ -5,10 +5,10 @@ robots: "noindex, follow"
 ---
 
 <div>
-  <h1 class="font-display text-5xl font-medium tracking-tight leading-tight mb-12">Posts tagged "{{ page.title }}"</h1>
+  <h1 class="page-heading" style="margin-bottom: 3rem">Posts tagged "{{ page.title }}"</h1>
 
   {% if page.posts.size > 0 %}
-    <div class="flex flex-col gap-6">
+    <div class="card-list">
       {% for post in page.posts %}
         <article class="writing-card">
           <h2 class="card-title">
@@ -16,7 +16,7 @@ robots: "noindex, follow"
           </h2>
           <p class="post-date">{{ post.date | date: "%B %-d, %Y" }}</p>
           {% if post.excerpt %}
-            <p class="body-text mb-4">{{ post.excerpt | strip_html | truncate: 200 }}</p>
+            <p class="body-text" style="margin-bottom: 1rem">{{ post.excerpt | strip_html | truncate: 200 }}</p>
           {% endif %}
           <a href="{{ post.url | relative_url }}" class="read-more-link" aria-label="Read more about {{ post.title }}">
             Read more

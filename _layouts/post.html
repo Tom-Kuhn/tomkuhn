@@ -3,24 +3,24 @@ layout: default
 ---
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400&display=swap" rel="stylesheet">
 
-<article class="max-w-[680px]">
+<article style="max-width: 680px">
 
-  <p class="post-date mb-10">{{ page.date | date: "%B %-d, %Y" }}</p>
+  <p class="post-date" style="margin-bottom: 2.5rem">{{ page.date | date: "%B %-d, %Y" }}</p>
 
   <div class="prose max-w-none">
     {{ content }}
   </div>
 
-  <footer class="mt-16 pt-8 border-t border-mist">
+  <footer style="margin-top: 4rem; padding-top: 2rem; border-top: 0.5px solid #E2E4EA">
     {% if page.tags.size > 0 %}
-      <div class="flex flex-wrap gap-2 mb-8">
+      <div class="tag-group" style="margin-bottom: 2rem">
         {% for tag in page.tags %}
           <a href="{{ site.baseurl }}/tag/{{ tag | slugify }}" class="tag-pill">{{ tag }}</a>
         {% endfor %}
       </div>
     {% endif %}
 
-    <a href="{{ "/writing/" | relative_url }}" class="icon-link gap-2">
+    <a href="{{ "/writing/" | relative_url }}" class="icon-link">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <line x1="19" y1="12" x2="5" y2="12"/>
         <polyline points="12 19 5 12 12 5"/>
