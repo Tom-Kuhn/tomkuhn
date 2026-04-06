@@ -65,5 +65,44 @@ When sidebar collapses, `.nav-label` spans are `display: none`. Nav links have n
 - `#search-results` container lacks `aria-live` — injected results not announced to screen readers
 - Search input is not wrapped in a `<form>` — acceptable for live-search pattern but limits keyboard Enter-to-submit
 
+**New semantic classes (added in session 2026-04-05):**
+- `.role-toggle` — `<button>` wrapping collapsible experience rows; inherits global `button:focus-visible` outline (#4D7287). No dedicated focus-visible rule needed — confirmed covered.
+- `.role-name` — `<span>` inside `.role-toggle`; color #4D7287 (accent-600) on white bg (5.15:1, passes). Inside button, also appears in static rows not wrapped in a button.
+- `.role-date` — `<span>` color #2E3039 (ink) on white bg (13.17:1, passes).
+- `.company-name` — color #1C1D21 (obsidian) on white bg — passes.
+- `.bullet-list` — `list-style: none`, `padding: 0` — semantic list stripped visually; bullet items use `.bullet-item` with CSS `::before` em-dash. No `role="list"` applied to the `<ul>` itself (VoiceOver may not announce as list due to CSS list-style: none).
+- `.mobile-nav-link` — `<a>` base class; active/inactive colours still via Tailwind utilities. No `aria-current` attribute on active link — active state conveyed by colour only.
+- `.card-action-btn` — applied to `<a>` elements alongside `uk-button uk-button-default`. Focus style via `a:focus-visible`. UIKit may suppress outline on `.uk-button` — requires manual verification.
+
+**Known open issues (unresolved as of 2026-04-06 — session 2):**
+- Sidebar toggle aria-label static ("Collapse sidebar" never updates to "Expand sidebar") — PERSISTENT
+- `aria-current` absent on sidebar nav links in `_includes/sidebar.html` — mobile nav has `aria-current="page"` but sidebar does NOT. Active state is colour-only in sidebar. WCAG 1.3.1 / 1.4.1 concern.
+- `.bullet-list` (`list-style: none` + `padding: 0`) may suppress VoiceOver list semantics — `role="list"` applied to `<ul>` in index.html (education/experience), which mitigates the VoiceOver issue.
+- `sr-only` class used in `_layouts/default.html` (line 93, sitemap link) and `search.html` (line 121, result count) but is NOT defined in `assets/css/main.scss`. Class is supplied at runtime by the Tailwind CDN Play script. If Tailwind CDN is ever removed, these elements lose their visually-hidden styling. Low risk currently but a fragile dependency.
+- Residual Tailwind utility classes in `index.html`: `relative`, `pl-4`, `pb-1`, `pb-3`, `flex`, `items-center`, `gap-2`, `hidden`, `mt-3` — not converted to semantic CSS. Currently functional via Tailwind CDN but are not part of the semantic refactor.
+- Multiple CSS `transition:` declarations are NOT wrapped in `@media (prefers-reduced-motion: no-preference)`. Affects users with vestibular disorders. WCAG 2.3.3 (AAA) / best practice Warning. Sidebar width/margin transitions added in session 1 remain unguarded.
+- Search live region: `#search-results` now HAS `aria-live="polite" aria-atomic="false"` — RESOLVED as of session 2 review.
+- `work.html` card buttons use `href="#"` for placeholder items — these open `#` (current page top) in a new tab (`target="_blank"`), which is disorienting. Should use `href` of a real destination or be `disabled`/`aria-disabled="true"` when not yet published.
+
+**Resolved in 2026-04-06 session 1:**
+- Sidebar collapse accessible name: RESOLVED. Icon spans have `aria-hidden="true"`, nav links have `aria-label` on `<a>`, `.nav-label` spans are `aria-hidden="true"`.
+
+**Resolved in 2026-04-06 session 2 (semantic refactor review):**
+- Search live region now present: `aria-live="polite" aria-atomic="false"` on `#search-results` in `search.html`.
+- Mobile nav `aria-current="page"` confirmed present on all five links in `_layouts/default.html`.
+- `role-toggle` button accessible name confirmed: `aria-label="{{ role.title }} at {{ company.company }}"` present.
+- `.card-action-btn` focus style confirmed: explicit `card-action-btn:focus-visible` rule in `main.scss` line 1091 with `outline: 2px solid #4D7287 !important` overriding any UIKit suppression.
+- `role-details` panel focus: `aria-expanded` toggled correctly in inline JS (index.html lines 167–183); `role="region"` + `aria-label` present on panel.
+- `aria-current` on mobile nav links: CONFIRMED present in default.html (lines 25–39).
+- `aria-current` on sidebar nav links: CONFIRMED ABSENT — not in `_includes/sidebar.html`.
+
+**View transition CSS (`@view-transition { navigation: auto; }` — added 2026-04-06):**
+- This is a progressive-enhancement feature; browsers that don't support it ignore it. No direct WCAG failure.
+- Risk: `prefers-reduced-motion` is NOT honoured in the current implementation. The cross-fade/transition will play for users who have system-level reduced-motion preference enabled, violating WCAG 2.3.3 (Animation from Interactions, Level AAA) and creating a Warning-level issue under WCAG 2.1 AA best practice. Recommend wrapping in `@media (prefers-reduced-motion: no-preference)`.
+- `body.sidebar-ready` transitions (sidebar width, main-wrap margin) are inside `@media (min-width: 768px)` but not inside `@media (prefers-reduced-motion: no-preference)` — same risk.
+
+**`body.sidebar-ready` transition guards:**
+- Transitions on `#desktop-sidebar` and `#main-wrap` are gated by `body.sidebar-ready` (JS adds this class), preventing animation on page load. This is a good pattern — no a11y concern from the gating mechanism itself.
+
 **Why:** Baseline for all future audits of this repo.
-**How to apply:** Reference these resolved ratios and known issues immediately. Do not re-verify passing ratios. Flag skip-link as now RESOLVED. Flag sidebar collapse accessible name, sidebar toggle aria-label, and search live region as persistent open issues until fixed.
+**How to apply:** Reference these resolved ratios and known issues immediately. Do not re-verify passing ratios. Flag sidebar collapse accessible name, sidebar toggle aria-label, and search live region as persistent open issues until fixed.

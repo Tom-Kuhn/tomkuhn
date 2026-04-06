@@ -1,0 +1,4 @@
+- [Placeholder content in index.html and portfolio.html](project_placeholder_content.md) — employer names + href="#" stubs that block production deployment
+- [/work/ permalink generates _site/Work/ (uppercase W) on Windows](project_work_permalink_case.md) — critical case-sensitivity bug that will 404 on GitHub Pages Linux host
+- [Gemfile contains plugins not listed in _config.yml](project_gemfile_unused_plugins.md) — five auto-activated plugins including a potential jekyll-tagging vs jekyll-archives conflict
+- [blog.html is an orphaned page not linked from navigation](project_blog_html_orphan.md) — leftover draft file, missing from _site/ output
