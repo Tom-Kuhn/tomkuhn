@@ -27,7 +27,8 @@ Custom Jekyll theme (no Minima). All layouts in `_layouts/`, all includes in `_i
 
 **Known failures:**
 - `text-storm` on `bg-obsidian`: sidebar toggle button and offcanvas close button — 2.75:1, fails WCAG 1.4.11 (UI component 3:1 threshold)
-- UIKit focus ring on inputs: `outline: none` replaced by `box-shadow: 0 0 0 3px rgba(77,114,135,0.15)` — at alpha 0.15 the effective colour blends near-white and almost certainly fails WCAG 1.4.11 non-text contrast 3:1
+- UIKit focus ring on inputs: `outline: none` replaced by `box-shadow: 0 0 0 3px rgba(77,114,135,0.15)` — CONFIRMED FAIL. Alpha 0.15 composites to ~rgb(228,234,237) on white = ~1.19:1 against white background. Fails WCAG 1.4.11 (3:1 required). Audited 2026-04-12.
+- `.submit-btn:focus-visible` outline: 2px solid #4D7287 on #1C1D21 button background — contrast ~2.96:1, marginally fails WCAG 1.4.11 3:1 threshold. Audited 2026-04-12.
 
 **Skip link:** EXISTS at `_layouts/default.html` line 7 (`<a href="#main-content">`). Was absent in earlier audit — now present.
 
@@ -123,5 +124,16 @@ When sidebar collapses, `.nav-label` spans are `display: none`. Nav links have n
 - `<footer role="contentinfo">` — `role="contentinfo"` is redundant on a `<footer>` that is a direct child of `<body>`. Not a failure, but unnecessary ARIA.
 - No `aria-label` on the footer — acceptable because `role="contentinfo"` (or the implicit landmark from `<footer>`) identifies it sufficiently when there is only one such landmark.
 
+**Contact form (contact.html) — audited 2026-04-12:**
+- `::selection { background: #C4CED8; color: #1C1D21 }` — contrast 9.82:1. PASSES. No WCAG AA criterion mandates selection contrast, but passes 4.5:1 regardless.
+- `box-shadow: 0 0 0 3px rgba(77,114,135,0.15)` on focus (outline:none) — effective ring colour ~#E4EAED, contrast vs white ~1.19:1. CRITICAL FAIL WCAG 1.4.11.
+- `.submit-btn:focus-visible` — 2px solid #4D7287 on #1C1D21 background — contrast ~2.96:1. Marginal FAIL WCAG 1.4.11 (needs 3:1).
+- No `aria-live` region for form submission result — screen readers not informed of success/error after Formspree redirect or JS response. Warning.
+- `contact-subject` input missing `autocomplete` attribute. Informational.
+- Font Awesome icons in contact info links (`fa-envelope`, `fa-linkedin`, `fa-github`) have `aria-hidden="true"` — correct; link text is the URL, which is descriptive. PASSES.
+- All `<label>` elements have correct `for` attributes matching input IDs. PASSES.
+- `required` on name, email, message fields — subject intentionally optional. No `novalidate`. PASSES.
+- Form action uses Formspree — no client-side submission handling, so no focus management issue on same-page AJAX response. Informational only.
+
 **Why:** Baseline for all future audits of this repo.
-**How to apply:** Reference these resolved ratios and known issues immediately. Do not re-verify passing ratios. Flag sidebar collapse accessible name, sidebar toggle aria-label, and page-fade-in reduced-motion fill-mode as persistent open issues until fixed.
+**How to apply:** Reference these resolved ratios and known issues immediately. Do not re-verify passing ratios. Flag sidebar collapse accessible name, sidebar toggle aria-label, page-fade-in reduced-motion fill-mode, input focus ring contrast, and submit-btn focus-visible contrast as persistent open issues until fixed.
