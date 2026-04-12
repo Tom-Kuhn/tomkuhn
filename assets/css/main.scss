@@ -2,6 +2,86 @@
 ---
 
 /* ============================================================
+   Design tokens — brand CSS custom properties
+   ============================================================ */
+:root {
+  /* Core neutral scale */
+  --color-obsidian:  #1C1D21;
+  --color-slate:     #2E3039;
+  --color-storm:     #5B6070;
+  --color-mist:      #E2E4EA;
+  --color-cloud:     #F5F6F8;
+  --color-white:     #FFFFFF;
+
+  /* Accent — slate blue */
+  --color-accent-50:  #EBF0F4;
+  --color-accent-100: #C4CED8;
+  --color-accent-400: #7A95A8;
+  --color-accent-600: #4D7287;
+  --color-accent-800: #2C4F61;
+
+  /* Typography */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono:    'Fira Code', 'Cascadia Code', 'Source Code Pro', Menlo, monospace;
+
+  --text-xs:   11px;
+  --text-sm:   13px;
+  --text-base: 16px;
+  --text-lg:   18px;
+  --text-xl:   22px;
+  --text-2xl:  28px;
+  --text-3xl:  36px;
+  --text-4xl:  48px;
+
+  --leading-tight:   1.2;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.7;
+
+  --tracking-tight:   -0.02em;
+  --tracking-normal:   0;
+  --tracking-wide:     0.05em;
+  --tracking-widest:   0.08em;
+
+  /* Spacing */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* Border radius */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+}
+
+/* ============================================================
+   Entrance animation — page load fade-up
+   ============================================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-fade-in {
+  animation: fadeInUp 0.35s ease-out both;
+}
+
+/* ============================================================
    Base
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
@@ -175,6 +255,8 @@ a:hover {
 .sidebar-nav-link.active {
   color: #7A95A8;
   background: rgba(122, 149, 168, 0.1);
+  border-left: 2px solid #4D7287;
+  padding-left: calc(1rem - 2px);
 }
 
 .sidebar-nav-link.active:hover {
@@ -251,6 +333,7 @@ a:hover {
     padding-left: 0;
     padding-right: 0;
     gap: 0;
+    border-left: none;
   }
 
   body.sidebar-collapsed #desktop-sidebar .nav-label {
@@ -279,6 +362,7 @@ a:hover {
 
 #main-content {
   flex: 1;
+  margin-top: 0.5rem;
   padding: 0 1.5rem;
   max-width: 900px;
   width: 100%;
@@ -409,6 +493,8 @@ a:hover {
 .mobile-nav-link.active {
   color: #7A95A8;
   background: rgba(122, 149, 168, 0.1);
+  border-left: 2px solid #4D7287;
+  padding-left: calc(1rem - 2px);
 }
 
 /* ============================================================
@@ -445,12 +531,14 @@ a:hover {
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 768px) {
   #page-header {
     top: 0;
     padding: 1.5rem 2rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -474,6 +562,7 @@ a:hover {
   font-size: 1rem;
   color: #5B6070;
   margin-top: 0.75rem;
+  margin-bottom: 0;
   line-height: 1.625;
 }
 
@@ -482,11 +571,13 @@ a:hover {
    ============================================================ */
 .site-footer {
   margin-top: 0;
-  padding: 2rem 1.5rem;
+  padding: 2rem 1.5rem 0.5rem;
 }
 
 @media (min-width: 768px) {
-  .site-footer { padding: 2rem; }
+  .site-footer {
+    padding: 2rem 1.5rem 0.5rem;
+  }
 }
 
 .footer-inner {
@@ -494,15 +585,7 @@ a:hover {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-@media (min-width: 640px) {
-  .footer-inner {
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-  }
+  gap: 1.5rem;
 }
 
 .footer-nav {
@@ -514,10 +597,10 @@ a:hover {
 
 .footer-social {
   display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  align-items: center;
   gap: 1rem;
-  text-align: center;
 }
 
 .footer-link {
@@ -533,12 +616,10 @@ a:hover {
 }
 
 .footer-disclaimer {
-  margin-top: 1.25rem;
   font-size: 0.75rem;
   color: #5B6070;
   font-style: italic;
-  max-width: 900px;
-  margin-bottom: 0;
+  margin: 0;
   text-align: center;
 }
 
@@ -646,11 +727,21 @@ button:focus-visible {
   border: 0.5px solid #E2E4EA;
   border-radius: 0.75rem;
   background: #fff;
-  transition: border-color 150ms;
+  transition: border-color 200ms;
 }
 
 .writing-card:hover {
   border-color: #5B6070;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .writing-card {
+    transition: border-color 200ms, transform 200ms;
+  }
+
+  .writing-card:hover {
+    transform: translateY(-2px);
+  }
 }
 
 /* ============================================================
@@ -727,6 +818,17 @@ button:focus-visible {
   font-size: 0.875rem;
   color: #5B6070;
   line-height: 1.7;
+}
+
+/* ============================================================
+   Card body text — body copy inside a flex card; grows to fill
+   available space, pushing actions (read-more, buttons) to bottom
+   ============================================================ */
+.card-body-text {
+  font-size: 0.875rem;
+  color: #5B6070;
+  line-height: 1.7;
+  flex: 1;
 }
 
 /* ============================================================
@@ -1212,5 +1314,10 @@ button:hover .role-name {
   *, *::before, *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+  }
+
+  /* Fully disable fill-mode animations so content is never invisible */
+  .page-fade-in {
+    animation: none;
   }
 }

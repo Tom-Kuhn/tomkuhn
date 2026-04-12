@@ -71,21 +71,11 @@
     </div>
     {% endif %}
 
-    <main id="main-content">
+    <main id="main-content" class="page-fade-in">
       {{ content }}
     </main>
 
-    <footer class="site-footer" role="contentinfo">
-      <div class="footer-inner">
-        <div class="footer-social">
-          <a href="mailto:{{ site.email }}" class="footer-link">{{ site.email }}</a>
-          <a href="https://github.com/{{ site.github_username }}" class="footer-link" target="_blank" rel="noopener">GitHub</a>
-          <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-      <p class="footer-disclaimer">The views expressed on this site are my own personal opinions and do not necessarily reflect those of my employer.</p>
-      <a href="{{ "/sitemap.xml" | relative_url }}" class="sr-only">Sitemap</a>
-    </footer>
+    {% include footer.html %}
 
   </div>
 
