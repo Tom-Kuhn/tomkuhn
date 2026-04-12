@@ -104,5 +104,24 @@ When sidebar collapses, `.nav-label` spans are `display: none`. Nav links have n
 **`body.sidebar-ready` transition guards:**
 - Transitions on `#desktop-sidebar` and `#main-wrap` are gated by `body.sidebar-ready` (JS adds this class), preventing animation on page load. This is a good pattern — no a11y concern from the gating mechanism itself.
 
+**`.page-fade-in` animation (added 2026-04-12):**
+- Applied to `<main id="main-content">` in `_layouts/default.html` line 74.
+- `@keyframes fadeInUp` starts at `opacity: 0; transform: translateY(10px)`. The `animation` shorthand uses `fill-mode: both`, meaning the element is invisible (`opacity: 0`) until the animation begins.
+- `@media (prefers-reduced-motion: reduce)` block (line 1314–1319) sets `animation-duration: 0.01ms !important` on all elements. This collapses the animation to near-instantaneous. The `both` fill-mode means the `from` state (`opacity: 0`) technically applies for those 0.01ms — could flash invisible on slow devices.
+- More robust pattern: explicitly set `animation: none` (not just a short duration) inside the reduced-motion block. Currently a Warning.
+
+**Active nav border indicator (added 2026-04-12):**
+- `border-left: 2px solid #7A95A8` on `.sidebar-nav-link.active` (dark sidebar bg #1C1D21) and `.mobile-nav-link.active` (also #1C1D21 offcanvas bg).
+- This border is a UI component indicator. WCAG 1.4.11 requires 3:1 contrast against adjacent colours.
+- #7A95A8 on #1C1D21 = ~5.40:1. PASSES 3:1. No action needed.
+- The `padding-left: calc(1rem - 2px)` compensates for the border width — good pattern, no layout shift.
+
+**Footer layout change (2026-04-12):**
+- `footer-disclaimer` moved inside `footer-inner` div. On desktop (≥640px), `footer-inner` is now `flex-direction: row; justify-content: space-between`. Disclaimer sits to the right of social links.
+- `footer-disclaimer` has `text-align: left` (desktop), `text-align: center` (mobile, max-width: 639px).
+- Text colour #5B6070 on white #FFFFFF = ~6.13:1. PASSES 4.5:1 normal text.
+- `<footer role="contentinfo">` — `role="contentinfo"` is redundant on a `<footer>` that is a direct child of `<body>`. Not a failure, but unnecessary ARIA.
+- No `aria-label` on the footer — acceptable because `role="contentinfo"` (or the implicit landmark from `<footer>`) identifies it sufficiently when there is only one such landmark.
+
 **Why:** Baseline for all future audits of this repo.
-**How to apply:** Reference these resolved ratios and known issues immediately. Do not re-verify passing ratios. Flag sidebar collapse accessible name, sidebar toggle aria-label, and search live region as persistent open issues until fixed.
+**How to apply:** Reference these resolved ratios and known issues immediately. Do not re-verify passing ratios. Flag sidebar collapse accessible name, sidebar toggle aria-label, and page-fade-in reduced-motion fill-mode as persistent open issues until fixed.
