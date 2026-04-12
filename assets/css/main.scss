@@ -98,6 +98,11 @@
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
 
+::selection {
+  background: #C4CED8;
+  color: #1C1D21;
+}
+
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 16px;
@@ -656,6 +661,7 @@ button:focus-visible {
   font-family: 'Inter', -apple-system, sans-serif;
   font-size: 16px;
   background: #fff;
+  transition: border-color 0.15s;
 }
 
 .uk-input::placeholder,
@@ -663,11 +669,17 @@ button:focus-visible {
   color: #5B6070;
 }
 
+.uk-input:hover,
+.uk-textarea:hover {
+  border-color: #5B6070;
+}
+
 .uk-input:focus,
 .uk-textarea:focus {
   border-color: #4D7287;
-  box-shadow: 0 0 0 3px rgba(77, 114, 135, 0.45);
-  outline: none;
+  outline: 2px solid #4D7287;
+  outline-offset: 2px;
+  box-shadow: none;
 }
 
 .uk-textarea {
@@ -686,11 +698,17 @@ button:focus-visible {
   font-weight: 500 !important;
   border-radius: 0.5rem !important;
   color: #fff;
-  transition: opacity 150ms;
+  cursor: pointer;
+  transition: opacity 0.15s;
 }
 
 .submit-btn:hover {
   opacity: 0.85;
+}
+
+.submit-btn:focus-visible {
+  outline: 2px solid #4D7287 !important;
+  outline-offset: 4px;
 }
 
 /* ============================================================
