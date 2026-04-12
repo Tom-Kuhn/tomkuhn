@@ -19,23 +19,25 @@
         <a href="{{ "/" | relative_url }}" class="offcanvas-title">
           <span>{{ site.title }}</span>
         </a>
-        <button class="uk-offcanvas-close offcanvas-close" type="button" uk-close aria-label="Close navigation"></button>
+        <button class="uk-offcanvas-close offcanvas-close" type="button" aria-label="Close navigation">
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
       </div>
       <nav class="offcanvas-nav" aria-label="Primary">
         <a href="{{ "/" | relative_url }}" {% if page.url == "/" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url == "/" %}active{% endif %}">
-          <span uk-icon="icon: user; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Profile
+          <i class="fa-solid fa-user icon-sm" aria-hidden="true"></i>Profile
         </a>
         <a href="{{ "/writing/" | relative_url }}" {% if page.url contains "/writing" or page.layout == "post" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/writing" or page.layout == "post" %}active{% endif %}">
-          <span uk-icon="icon: file-text; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Writing
+          <i class="fa-solid fa-file-lines icon-sm" aria-hidden="true"></i>Writing
         </a>
         <a href="{{ "/work/" | relative_url }}" {% if page.url contains "/work" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/work" %}active{% endif %}">
-          <span uk-icon="icon: grid; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Work
+          <i class="fa-solid fa-grip icon-sm" aria-hidden="true"></i>Work
         </a>
         <a href="{{ "/contact/" | relative_url }}" {% if page.url contains "/contact" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/contact" %}active{% endif %}">
-          <span uk-icon="icon: mail; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Contact
+          <i class="fa-solid fa-envelope icon-sm" aria-hidden="true"></i>Contact
         </a>
         <a href="{{ "/search/" | relative_url }}" {% if page.url contains "/search" %}aria-current="page"{% endif %} class="mobile-nav-link {% if page.url contains "/search" %}active{% endif %}">
-          <span uk-icon="icon: search; ratio: 0.85" class="icon-sm" aria-hidden="true"></span>Search
+          <i class="fa-solid fa-magnifying-glass icon-sm" aria-hidden="true"></i>Search
         </a>
       </nav>
     </div>
@@ -50,7 +52,7 @@
         type="button"
         class="mobile-menu-btn"
         aria-label="Open navigation">
-        <span uk-icon="icon: menu; ratio: 1.2" class="icon-md" aria-hidden="true"></span>
+        <i class="fa-solid fa-bars icon-md" aria-hidden="true"></i>
       </button>
       <a href="{{ "/" | relative_url }}" class="mobile-site-title" aria-label="{{ site.title }} home">Tom Kuhn</a>
     </header>
@@ -71,7 +73,7 @@
     </div>
     {% endif %}
 
-    <main id="main-content" class="page-fade-in">
+    <main id="main-content">
       {{ content }}
     </main>
 
