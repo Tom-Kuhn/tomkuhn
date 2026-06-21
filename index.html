@@ -10,7 +10,7 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
 
 {% assign profile = site.data.profile %}
 
-<!-- Social links + bio -->
+<!-- Social links -->
 <div class="social-links">
   <a href="mailto:{{ site.email }}" class="icon-link">
     <i class="fa-solid fa-envelope" aria-hidden="true"></i>
@@ -26,7 +26,15 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
   </a>
 </div>
 
-<p class="profile-bio">{{ profile.bio }}</p>
+<!-- Profile intro section -->
+<div class="profile-intro-section">
+  <div class="profile-avatar-wrap">
+    <img src="{{ '/assets/images/tk.jpeg' | relative_url }}" alt="Tom Kuhn" class="profile-avatar">
+  </div>
+  <div class="profile-intro-text">
+    <p class="profile-bio">{{ profile.bio }}</p>
+  </div>
+</div>
 
 <!-- Latest Writing -->
 {% assign real_posts = site.posts | where_exp: "post", "post.tags.size > 0" %}
