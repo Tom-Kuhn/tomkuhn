@@ -16,6 +16,12 @@ description: "Tom Kuhn — Staff Engineer and architect with a passion for build
     <i class="fa-solid fa-envelope" aria-hidden="true"></i>
     {{ site.email }}
   </a>
+  {% if site.phone %}
+  <a href="tel:{{ site.phone }}" class="icon-link">
+    <i class="fa-solid fa-phone" aria-hidden="true"></i>
+    {{ site.phone }}
+  </a>
+  {% endif %}
   <a href="https://github.com/{{ site.github_username }}" class="icon-link" target="_blank" rel="noopener">
     <i class="fa-brands fa-github" aria-hidden="true"></i>
     GitHub
