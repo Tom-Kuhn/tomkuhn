@@ -19,10 +19,12 @@ bio: |
 experience:
   - company: American Express
     headline: "Staff Engineer &middot; 2014 &mdash; present"
+    logo: "assets/images/amex_logo.png"
     roles:
       - title: Staff Engineer (Travel & Lounge Services)
         dates: "August 2022 — present"
         expandable: true
+        expanded: true
         id: role-amex-staff
         bullets:
           - "Architected a new Travel mobile app aligned to the enterprise mobile strategy, supporting more than 20% of Travel bookings."
@@ -33,6 +35,7 @@ experience:
       - title: Senior software engineer (Mobile)
         dates: "July 2021 — August 2022"
         expandable: true
+        expanded: false
         id: role-amex-mobile
         bullets:
           - "Delivered customer-facing Android mobile capabilities using Kotlin within a large-scale enterprise mobile ecosystem."
@@ -41,6 +44,7 @@ experience:
       - title: Solutions architect (Commercial Services)
         dates: "January 2019 — July 2021"
         expandable: true
+        expanded: false
         id: role-amex-solutions
         bullets:
           - "Owned architectural direction and governance processes for the Global Pay international money movement platform."
@@ -50,6 +54,7 @@ experience:
       - title: Senior software engineer (Global Network)
         dates: "October 2014 — January 2019"
         expandable: true
+        expanded: false
         id: role-amex-network
         bullets:
           - "Designed and delivered highly available, scalable, and resilient distributed systems across enterprise network platforms."
@@ -62,10 +67,12 @@ experience:
 
   - company: Bupa Global
     headline: "Senior Software Engineer &middot; 2011 &mdash; 2014"
+    logo: "assets/images/bupa logo 2022.png"
     roles:
       - title: Senior software engineer - level 2
         dates: "July 2011 — October 2014"
         expandable: true
+        expanded: false
         id: role-bupa-senior
         bullets:
           - "Developed and supported enterprise web, desktop, and cloud-based healthcare systems."
@@ -74,10 +81,12 @@ experience:
 
   - company: Thales
     headline: "Software Engineer &middot; 2006 &mdash; 2011"
+    logo: "assets/images/Thales_Logo.svg"
     roles:
       - title: Software engineer
         dates: "September 2006 — July 2011"
         expandable: true
+        expanded: false
         id: role-thales-eng
         bullets:
           - "Completed a 4-year IET accredited graduate programme focused on embedded and communications systems engineering."
@@ -91,6 +100,7 @@ education:
   - institution: Sussex University
     dates: "2003 — 2006"
     degree: "BA Artificial Intelligence — First Class with Honours"
+    logo: "assets/images/sussex_logo.jpg"
     bullets: []
 
 # ---------------------------------------------------------------------------

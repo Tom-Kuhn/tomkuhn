@@ -1212,6 +1212,50 @@ button:hover .role-name {
 }
 
 /* ============================================================
+   Company/School Logo container & layout
+   ============================================================ */
+.company-header-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.company-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 4px;
+  flex-shrink: 0;
+}
+
+.company-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.education-header-logo-wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-header-text {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
    Company name — employer heading on experience timeline
    ============================================================ */
 .company-name {
@@ -1247,8 +1291,8 @@ button:hover .role-name {
    Education entry
    ============================================================ */
 .education-entry {
-  padding-left: 1.5rem;
-  border-left: 0.5px solid #E2E4EA;
+  padding-left: 0;
+  border-left: none;
 }
 
 .education-header {
